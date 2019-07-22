@@ -32,18 +32,11 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/views/index.html`);
 })
-<<<<<<< HEAD
-// app.use('/home', routes.home);
-// app.use('/profile'. routes.profile);
-// app.use('/login', routes.login);
-// app.use('/signup', routes.signup);
-=======
 
 // app.use('/home', routes.home);
 // app.use('/profile'. routes.profile);
 // app.use('/login', routes.login);
 app.use('/signup', routes.signup);
->>>>>>> 4cdf0430701cb639baf3e343892afc0185403833
 
 // ------------------------------ API ENDPOINTS ------------------------------ //
 app.get('/api/v1/users', (req, res) => {
@@ -52,6 +45,22 @@ app.get('/api/v1/users', (req, res) => {
         res.json({ status: 200, data: allUsers })
     });
 });
+
+app.get('/api/v1/posts', (req, res) => {
+    db.Post.find({}, (err, allPosts) => {
+        if (err) return res.json({ status: 400, error: err });
+        res.json({ status: 200, data: allPosts })
+    });
+});
+
+app.get('/api/v1/comments', (req, res) => {
+    db.Comment.find({}, (err, allComments) => {
+        if (err) return res.json({ status: 400, error: err });
+        res.json({ status: 200, data: allComments })
+    });
+});
+
+
 
 
 app.listen(PORT, () => console.log(`Server is live`));
