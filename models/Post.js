@@ -10,6 +10,11 @@ const postSchema = new Schema({
         type: Date,
         required: true,
     },
+    time_posted: {
+        type: Date,
+        required: true,
+        default: Date.now
+    },
     location: {
         type: String,
         required: true,
@@ -18,23 +23,23 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    // joins: [
-    //     {
-    //         type: Schema.Types.objectId,
-    //         ref: 'User'
-    //     }
-    // ],
-    // host: {
-    //     type: Schema.Types.objectId,
-    //     ref: 'User',
-    //     required: true,
-    // },
-    // comments: [
-    //     {
-    //         type: Schema.Types.objectId,
-    //         ref: 'Comment'
-    //     }
-    // ],
+    joins: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    host: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        // required: true,
+    },
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ],
 });
 
 const Post = mongoose.model('Post', postSchema);

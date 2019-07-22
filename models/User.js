@@ -2,12 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
         type: String,
         required: true,
     },
     email: {
         type: String,
+        required: true,
+    },
+    phoneNum: {
+        type: Number,
         required: true,
     },
     password: {
@@ -19,18 +27,18 @@ const userSchema = new Schema({
         required: true,
         default: Date.now,
     },
-    // posts: [
-    //     {
-    //         type: Schema.type.objectId,
-    //         ref: 'Post',
-    //     }
-    // ],
-    // joins: [
-    //     {
-    //         type: Schema.Types.objectId,
-    //         ref: 'Post',
-    //     }
-    // ],
+    posts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Post',
+        }
+    ],
+    joins: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Post',
+        }
+    ],
 });
 
 const User = mongoose.model('User', userSchema);
