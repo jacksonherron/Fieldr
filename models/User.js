@@ -22,13 +22,13 @@ const userSchema = new Schema({
     posts: [
         {
             type: Schema.Types.objectId,
-            ref: 'Post'
+            ref: 'Post',
         }
     ],
     joins: [
         {
             type: Schema.Types.objectId,
-            ref: 'Post'
+            ref: 'Post',
         }
     ],
 });

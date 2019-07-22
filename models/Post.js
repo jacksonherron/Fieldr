@@ -26,7 +26,8 @@ const postSchema = new Schema({
     ],
     host: {
         type: Schema.Types.objectId,
-        ref: 'User'
+        ref: 'User',
+        required: true,
     },
     comments: [
         {

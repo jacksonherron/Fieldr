@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoos.Schema;
+const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     date_time: {
@@ -23,5 +23,5 @@ const commentSchema = new Schema({
     }
 });
 
-const Message = mongoose.model('Message', messageSchema);
-module.exports = Message;
+const Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;
