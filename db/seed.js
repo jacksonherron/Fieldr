@@ -9,7 +9,7 @@ db.User.deleteMany({}, () => {
     userList.forEach(user => {
         db.User.create(user, (err, newUser) => {
             if (err) return console.log(err);
-            console.log(newUser);
+            // console.log(newUser);
         });
     });
 });
@@ -19,7 +19,19 @@ db.Post.deleteMany({}, () => {
     postList.forEach(post => {
         db.Post.create(post, (err, newPost) => {
             if (err) return console.log(err);
-            console.log(newPost);
+        });
+        // Connect post to the user
+        console.log(post);
+        db.User.findOne({ firstName: post.hostedBy }, (err, user) => {
+            if (err) return console.log(err);
+            return console.log(user, user._id);
+        // db.Post.findOneAndUpdate(
+        //     { sport: post.sport },
+        //     { host: db.User.findOne({ firstName: post.hostedBy }, (err, user) => {
+        //         if (err) return console.log(err);
+        //         return user._id;
+        //     }) }
+        // );
         });
     });
 });
@@ -29,7 +41,7 @@ db.Comment.deleteMany({}, () => {
     commentList.forEach(comment => {
         db.Comment.create(comment, (err, newComment) => {
             if (err) return console.log(err);
-            console.log(newComment);
+            // console.log(newComment);
         });
     });
 });
