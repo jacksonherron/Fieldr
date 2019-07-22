@@ -46,7 +46,7 @@ nav a:hover{
 /* Styles what the main page should look like */
 main{
     background-color: whitesmoke;
-    height:80vh;
+    height:100vh;
     display: flex;
     justify-content: center;
 }
@@ -84,8 +84,20 @@ input{
     justify-content: flex-end;
 }
 
-.description-container .button-container button{
+button{
     background-color: var(--secondary-color);
+    height:2.5em;
+    width: 3.5em;
+    font-size: 1em;
+    color:white;
+    padding:0;
+    margin:1em;
+    border-radius: 1em;
+}
+
+button:hover{
+    background-color:rgb(228, 180, 180);
+    cursor: pointer;
 }
 
 /* Bottom footer styles */

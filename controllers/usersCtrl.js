@@ -3,11 +3,7 @@ const db = require('../models');
 const createUser = (req, res) => {
     db.User.create(req.body, (error, createdUser) => {
         if (error) return console.log(error);
-
-        console.log(createUser);
-        res.json({
-            data: createdUser
-        });
+        res.render(`/profile/show.ejs`)
     })
 }
 
