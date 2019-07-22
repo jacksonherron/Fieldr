@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const bodyParser = require('body-parser');
 // Database
 const db = require('./models');
 // Routes
@@ -24,6 +25,10 @@ app.use(session({
     saveUninitialized: false,
 }));
 
+//BodyParser Middleware
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
 app.use((req, res, next) => {
     console.log(req.session);
     next();
@@ -38,8 +43,8 @@ app.get('/', (req, res) => {
 
 // app.use('/home', routes.home);
 // app.use('/profile'. routes.profile);
-// app.use('/login', routes.login);
-// app.use('/signup', routes.signup);
+app.use('/login', routes.login);
+app.use('/signup', routes.signup);
 
 
 
@@ -51,19 +56,19 @@ app.get('/api/v1/users', (req, res) => {
     });
 });
 
-app.get('/api/v1/posts', (req, res) => {
-    db.Post.find({}, (err, allPosts) => {
-        if (err) return res.json({ status: 400, error: err });
-        res.json({ status: 200, data: allPosts })
-    });
-});
+// app.get('/api/v1/posts', (req, res) => {
+//     db.Post.find({}, (err, allPosts) => {
+//         if (err) return res.json({ status: 400, error: err });
+//         res.json({ status: 200, data: allPosts })
+//     });
+// });
 
-app.get('/api/v1/comments', (req, res) => {
-    db.Comment.find({}, (err, allComments) => {
-        if (err) return res.json({ status: 400, error: err });
-        res.json({ status: 200, data: allComments })
-    });
-});
+// app.get('/api/v1/comments', (req, res) => {
+//     db.Comment.find({}, (err, allComments) => {
+//         if (err) return res.json({ status: 400, error: err });
+//         res.json({ status: 200, data: allComments })
+//     });
+// });
 
 
 
