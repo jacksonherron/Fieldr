@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const bodyParser = require('body-parser');
 // Database
 const db = require('./models');
 // Routes
@@ -23,6 +24,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+
+//BodyParser Middleware
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
     console.log(req.session);
