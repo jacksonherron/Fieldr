@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 3000;
 
 
 // ------------------------------ MIDDLEWARE ------------------------------ //
+// Hook up EJS
+app.set('view engine', 'ejs');
+
 // Public folder 
 app.use(express.static(`${__dirname}/public`));
 
@@ -30,13 +33,15 @@ app.use((req, res, next) => {
 // ------------------------------ ROUTES ------------------------------ //
 // ------------------------------ HTML ENDPOINTS ------------------------------ //
 app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/views/index.html`);
+    res.render('index');
 })
 
 // app.use('/home', routes.home);
 // app.use('/profile'. routes.profile);
 // app.use('/login', routes.login);
-app.use('/signup', routes.signup);
+// app.use('/signup', routes.signup);
+
+
 
 // ------------------------------ API ENDPOINTS ------------------------------ //
 app.get('/api/v1/users', (req, res) => {
