@@ -44,12 +44,12 @@ app.use('/signup', routes.signup);
 
 
 // ------------------------------ API ENDPOINTS ------------------------------ //
-// app.get('/api/v1/users', (req, res) => {
-//     db.User.find({}, (err, allUsers) => {
-//         if (err) return res.json({ status: 400, error: err });
-//         res.json({ status: 200, data: allUsers })
-//     });
-// });
+app.get('/api/v1/users', (req, res) => {
+    db.User.find({}, (err, allUsers) => {
+        if (err) return res.json({ status: 400, error: err });
+        res.json({ status: 200, data: allUsers })
+    });
+});
 
 // app.get('/api/v1/posts', (req, res) => {
 //     db.Post.find({}, (err, allPosts) => {

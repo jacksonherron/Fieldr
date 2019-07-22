@@ -52,11 +52,23 @@ main{
 }
 
 .forms{
-    margin: 5em 0;
+    margin: 2.5em 0;
 }
 
 .forms * {
     display: block;
+}
+
+.forms label{
+    font-size: 1.5em;
+}
+
+input{
+    border-color: var(--main-color);
+    font-family: sans-serif;
+    font-size: 1.5em;
+    height:7vh;
+    width:50vh;
 }
 
 
