@@ -1,0 +1,17 @@
+<% include ../partials/_head.ejs %>
+<section class="forms register">
+    <form action="/signup">
+        <label for="firstName">First Name</label>
+        <input name="firstName" id="firstName" type="text" autofocus>
+        <label for="lastName">Last Name</label>
+        <input name="lastName" id="lastName" type="text">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="athlete@email.com">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password">
+        <label for="">Confirm Password</label>
+        <input name="password2" id="password2" type="password">
+        <input type="submit">
+    </form>
+</section>
+<% include ../partials/_footer.ejs %>
