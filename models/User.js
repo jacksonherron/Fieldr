@@ -16,6 +16,7 @@ const userSchema = new Schema({
     },
     sign_up_date: {
         type: Date,
+        required: true,
         default: Date.now,
     },
     posts: [
