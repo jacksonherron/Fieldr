@@ -21,7 +21,11 @@ const userSchema = new Schema({
     },
     // posts: [
     //     {
+<<<<<<< HEAD
     //         type: Schema.Types.objectId,
+=======
+    //         type: Schema.type.objectId,
+>>>>>>> 4cdf0430701cb639baf3e343892afc0185403833
     //         ref: 'Post',
     //     }
     // ],
