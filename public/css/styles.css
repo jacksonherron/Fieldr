@@ -1,10 +1,16 @@
+:root{
+    --main-color:rgb(166, 210, 235);
+    --secondary-color: rgb(230, 119, 119);
+}
+/* Removes default margin and padding in browsers */
 body{
     margin: 0;
     padding: 0;
 }
 
+/* Styles the top third of the page */
 nav{
-    background-color: rgb(166, 210, 235);
+    background-color: var(--main-color);
     top:0;
     display: flex;
     justify-content: space-between;
@@ -12,6 +18,32 @@ nav{
     height:20vh;
 }
 
+nav .headers{
+    color: var(--secondary-color);
+}
+
+nav .headers h1{
+    font-size: 3em;
+    margin-bottom: 0;
+}
+
+nav .headers h3{
+    font-size: 2em;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-right: 1em;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* Styles what the main page should look like */
 main{
     background-color: whitesmoke;
     height:80vh;
@@ -19,9 +51,7 @@ main{
     justify-content: center;
 }
 
-.description-container{
-    border: 1px solid black;
-}
+
 
 .description-container p {
     font-size: 2em;
@@ -29,6 +59,16 @@ main{
     line-height: 1.7em;
 }
 
+.description-container .button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.description-container .button-container button{
+    background-color: var(--secondary-color);
+}
+
+/* Bottom footer styles */
 footer{
     background-color: black;
     height: 20vh;
