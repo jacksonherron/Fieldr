@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "Jackson",
+        "lastName": "Herron",
+        "email": "jacksonherron@gmail.com",
+        "phoneNum": 4355131506,
+        "password": "pass123",
+        "posts": [],
+        "joins": []
+    },
+    {
+        "firstName": "Eduardo",
+        "lastName": "Franco",
+        "email": "edfranco415@gmail.com",
+        "phoneNum": 4156060887,
+        "password": "pass321",
+        "posts": [],
+        "joins": []
+    }
+]
