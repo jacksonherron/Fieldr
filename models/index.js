@@ -10,5 +10,7 @@ mongoose.connect(DB_URL, {
     .catch((err) => console.log(err));
 
 module.exports = {
-    User: require('./User')
+    User: require('./User'),
+    Post: require('./Post'),
+    Comment: require('./Comment'),
 }

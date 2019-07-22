@@ -18,23 +18,23 @@ const postSchema = new Schema({
         type: String,
         required: true,
     },
-    joins: [
-        {
-            type: Schema.Types.objectId,
-            ref: 'User'
-        }
-    ],
-    host: {
-        type: Schema.Types.objectId,
-        ref: 'User',
-        required: true,
-    },
-    comments: [
-        {
-            type: Schema.Types.objectId,
-            ref: 'Comment'
-        }
-    ],
+    // joins: [
+    //     {
+    //         type: Schema.Types.objectId,
+    //         ref: 'User'
+    //     }
+    // ],
+    // host: {
+    //     type: Schema.Types.objectId,
+    //     ref: 'User',
+    //     required: true,
+    // },
+    // comments: [
+    //     {
+    //         type: Schema.Types.objectId,
+    //         ref: 'Comment'
+    //     }
+    // ],
 });
 
 const Post = mongoose.model('Post', postSchema);
