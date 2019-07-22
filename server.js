@@ -3,10 +3,13 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const bodyParser = require('body-parser');
+
 // Database
 const db = require('./models');
+
 // Routes
 const routes = require('./routes')
+
 // Constants
 const PORT = process.env.PORT || 3000;
 
