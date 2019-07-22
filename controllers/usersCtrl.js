@@ -6,6 +6,15 @@ const createUser = (req, res) => {
     })
 }
 
+const newSession = (req, res) => {
+    console.log(`I work`);
+}
+const createSession = (req, res) => {
+    console.log(`I work`);
+}
+
 module.exports = {
-    createUser
+    createUser,
+    newSession,
+    createSession
 }
