@@ -7,16 +7,16 @@ const commentSchema = new Schema({
         required: true,
         default: Date.now,
     },
-    post: {
-        type: Schema.Types.objectId,
-        ref: 'Post',
-        required: true,
-    },
-    user: {
-        type: Schema.Types.objectId,
-        ref: 'User',
-        required: true,
-    },
+    // post: {
+    //     type: Schema.Types.objectId,
+    //     ref: 'Post',
+    //     required: true,
+    // },
+    // user: {
+    //     type: Schema.Types.objectId,
+    //     ref: 'User',
+    //     required: true,
+    // },
     content: {
         type: String,
         required: true,

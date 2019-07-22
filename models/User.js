@@ -19,18 +19,18 @@ const userSchema = new Schema({
         required: true,
         default: Date.now,
     },
-    posts: [
-        {
-            type: Schema.Types.objectId,
-            ref: 'Post',
-        }
-    ],
-    joins: [
-        {
-            type: Schema.Types.objectId,
-            ref: 'Post',
-        }
-    ],
+    // posts: [
+    //     {
+    //         type: Schema.Types.objectId,
+    //         ref: 'Post',
+    //     }
+    // ],
+    // joins: [
+    //     {
+    //         type: Schema.Types.objectId,
+    //         ref: 'Post',
+    //     }
+    // ],
 });
 
 const User = mongoose.model('User', userSchema);
