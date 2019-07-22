@@ -32,9 +32,10 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/views/index.html`);
 })
-app.use('/home', routes.home);
-app.use('/profile'. routes.profile);
-app.use('/login', routes.login);
+
+// app.use('/home', routes.home);
+// app.use('/profile'. routes.profile);
+// app.use('/login', routes.login);
 app.use('/signup', routes.signup);
 
 // ------------------------------ API ENDPOINTS ------------------------------ //
