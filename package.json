@@ -1,0 +1,27 @@
+{
+  "name": "fieldr",
+  "version": "0.0.1",
+  "description": "A web app for users to find friends to play sports with or due other fun activities",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edfranco/Fieldr.git"
+  },
+  "author": "The Fieldr Team (Jackson Herron & Eduardo Franco)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edfranco/Fieldr/issues"
+  },
+  "homepage": "https://github.com/edfranco/Fieldr#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.6.5"
+  }
+}
