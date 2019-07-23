@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 // app.use('/profile'. routes.profile);
 app.use('/login', routes.login);
 app.use('/signup', routes.signup);
-app.use('/profile/show', routes.profile);
+app.use('/home', routes.home);
 
 
 // ------------------------------ API ENDPOINTS ------------------------------ //
