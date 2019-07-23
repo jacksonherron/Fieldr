@@ -79,6 +79,13 @@ const createSession = (req, res) => {
 
 }
 
+const deleteSession = (req, res) => {
+    req.session.destroy(error => {
+        if (error) return (res.render(`/home`), { error: [{ message: `Something went wrong. Try again` }] });
+        res.redirect(`/`);
+    })
+}
+
 const showProfile = (req, res) => {
     res.render('profile/show', { currentUser: req.session.currentUser })
 }
@@ -90,5 +97,6 @@ module.exports = {
     createUser,
     newSession,
     createSession,
+    deleteSession,
     showProfile
 }
