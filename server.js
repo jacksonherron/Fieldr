@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    console.log(req.session);
+    console.log(req.session.currentUser);
     next();
 });
 
@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 // app.use('/profile'. routes.profile);
 app.use('/login', routes.login);
 app.use('/signup', routes.signup);
-
+app.use('/profile/show', routes.profile);
 
 
 // ------------------------------ API ENDPOINTS ------------------------------ //
@@ -58,22 +58,5 @@ app.get('/api/v1/users', (req, res) => {
         res.json({ status: 200, data: allUsers })
     });
 });
-
-// app.get('/api/v1/posts', (req, res) => {
-//     db.Post.find({}, (err, allPosts) => {
-//         if (err) return res.json({ status: 400, error: err });
-//         res.json({ status: 200, data: allPosts })
-//     });
-// });
-
-// app.get('/api/v1/comments', (req, res) => {
-//     db.Comment.find({}, (err, allComments) => {
-//         if (err) return res.json({ status: 400, error: err });
-//         res.json({ status: 200, data: allComments })
-//     });
-// });
-
-
-
 
 app.listen(PORT, () => console.log(`Server is live`));
