@@ -1,7 +1,9 @@
+/* Variables for the sites main colors */
 :root{
     --main-color:rgb(166, 210, 235);
     --secondary-color: rgb(230, 119, 119);
 }
+
 /* Removes default margin and padding in browsers */
 body{
     margin: 0;
@@ -46,11 +48,12 @@ nav a:hover{
 /* Styles what the main page should look like */
 main{
     background-color: whitesmoke;
-    height:80vh;
+    height:100vh;
     display: flex;
     justify-content: center;
 }
 
+/* Styles the forms */
 .forms{
     margin: 2.5em 0;
 }
@@ -72,7 +75,7 @@ input{
 }
 
 
-
+/* Styles the index page */
 .description-container p {
     font-size: 2em;
     width: 60vw;
@@ -84,8 +87,26 @@ input{
     justify-content: flex-end;
 }
 
-.description-container .button-container button{
+/* Styles the sites buttons */
+button{
     background-color: var(--secondary-color);
+    height:2.5em;
+    width: 4em;
+    font-size: 1em;
+    color:white;
+    padding:0;
+    margin:1em;
+    border-radius: 1em;
+}
+
+button a{
+    color: white;
+    text-decoration: none;
+}
+
+button:hover{
+    background-color:rgb(228, 180, 180);
+    cursor: pointer;
 }
 
 /* Bottom footer styles */
