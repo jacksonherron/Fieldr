@@ -2,10 +2,11 @@ const db = require('../models');
 
 const showHomePage = (req, res) => {
     if (req.session.currentUser) {
-        db.Post.find({}, (err, foundPosts) => {
+        db.Post.find({}).populate('host').populate('comments').exec((err, foundPosts) => {
             if (err) return res.render('home.ejs', { currentUser: req.session.currentUser });
             res.render('home.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
-        });
+        })
+
     } else return res.redirect('/login');
 };
 

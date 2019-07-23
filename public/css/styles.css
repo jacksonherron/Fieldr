@@ -133,6 +133,10 @@ button:hover{
 .card .descr h1{
     margin:0;
 }
+/* Comments style */
+.comments-user{
+    margin: 0;
+}
 
 .comment-field{
     width: 60vh;
