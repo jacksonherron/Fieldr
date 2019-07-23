@@ -3,10 +3,13 @@
         <h1>Fieldr</h1>
         <h3>Find Your Field</h3>
     </div>
-    <div class="user-links">
-        <a href="/login">Log In</a>
-        <a href="/signup">Register</a>
-    </div>
+
+    <% if (typeof currentUser !== 'undefined'){ %>
+    <% include ./_loggedIn.ejs %>
+    <% } else { %>
+    <% include ./_loggedOut.ejs %>
+    <% }; %>
+
 </nav>
 <% include ./_messages.ejs %>
 <main>
