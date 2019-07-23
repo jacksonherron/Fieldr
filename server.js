@@ -48,7 +48,6 @@ app.use('/', routes.root);
 app.use('/home', routes.home);
 app.use('/profile', routes.profile);
 
-
 // ------------------------------ API ENDPOINTS ------------------------------ //
 app.get('/api/v1/users', (req, res) => {
     db.User.find({}, (err, allUsers) => {
@@ -60,14 +59,14 @@ app.get('/api/v1/users', (req, res) => {
 app.get('/api/v1/posts', (req, res) => {
     db.Post.find({}, (err, allPosts) => {
         if (err) return res.json({ status: 400, error: err });
-        res.json({ status: 200, data: allPosts})
+        res.json({ status: 200, data: allPosts })
     })
 });
 
 app.get('/api/v1/comments', (req, res) => {
     db.Comment.find({}, (err, allComments) => {
         if (err) return res.json({ status: 400, error: err });
-        res.json({ status: 200, data: allComments})
+        res.json({ status: 200, data: allComments })
     })
 });
 

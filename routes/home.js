@@ -3,7 +3,7 @@ const router = express.Router();
 const ctrl = require('../controllers');
 
 // Render home page
-router.get('/', ctrl.postsCtrl.renderHomePage);
+router.get('/', ctrl.postsCtrl.showHomePage);
 
 // Create new post
 router.post('/', ctrl.postsCtrl.createNewPost);

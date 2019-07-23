@@ -1,6 +1,10 @@
 const db = require('../models');
 const bcrypt = require('bcryptjs');
 
+const newUser = (req, res) => {
+    res.render(`users/signup`);
+}
+
 const createUser = (req, res) => {
     const errors = [];
     if (!req.body.email) {
@@ -39,10 +43,6 @@ const newSession = (req, res) => {
     res.render('users/login');
 }
 
-const showProfile = (req, res) => {
-    res.render('profile/show', { currentUser: req.session.currentUser })
-}
-
 const createSession = (req, res) => {
     const errors = [];
     if (!req.body.email) {
@@ -79,14 +79,16 @@ const createSession = (req, res) => {
 
 }
 
-const newUser = (req, res) => {
-    res.render(`users/signup`);
+const showProfile = (req, res) => {
+    res.render('profile/show', { currentUser: req.session.currentUser })
 }
 
+
+
 module.exports = {
+    newUser,
     createUser,
     newSession,
     createSession,
-    newUser,
     showProfile
 }

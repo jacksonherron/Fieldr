@@ -6,7 +6,27 @@ const showHomePage = (req, res) => {
     } return res.redirect('/login')
 };
 
-module.exports = {
-    showHomePage,
+const createNewPost = (req, res) => {
+
 }
 
+const joinPost = (req, res) => {
+
+}
+
+const unjoinPost = (req, res) => {
+
+}
+
+const deletePost = (req, res) => {
+
+}
+
+
+module.exports = {
+    showHomePage,
+    createNewPost,
+    joinPost,
+    unjoinPost,
+    deletePost
+}
