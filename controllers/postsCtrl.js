@@ -2,10 +2,21 @@ const db = require('../models');
 
 const showHomePage = (req, res) => {
     if (req.session.currentUser) {
-        db.Post.find({}, (err, foundPosts) => {
-            if (err) return res.render('home.ejs', { currentUser: req.session.currentUser });
-            res.render('home.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
-        });
+        db.Post.find({})
+            .populate('host')
+            .populate({
+                path: 'comments',
+                model: 'Comment',
+                populate: {
+                    path: 'user',
+                    model: 'User',
+                }
+            })
+            .exec((err, foundPosts) => {
+                if (err) return res.render('home.ejs', { currentUser: req.session.currentUser });
+                res.render('home.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
+            })
+
     } else return res.redirect('/login');
 };
 
