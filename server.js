@@ -47,6 +47,7 @@ app.get('/', (req, res) => {
 // app.use('/home', routes.home);
 // app.use('/profile'. routes.profile);
 app.use('/login', routes.login);
+app.use('/logout', routes.logout);
 app.use('/signup', routes.signup);
 app.use('/home', routes.home);
 

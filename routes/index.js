@@ -3,4 +3,5 @@ module.exports = {
     login: require('./login'),
     profile: require('./profile'),
     signup: require('./signup'),
+    home: require('./home')
 }
