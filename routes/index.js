@@ -1,7 +1,6 @@
 module.exports = {
+    // home: require('./home'),
+    root: require('./root'),
     home: require('./home'),
-    login: require('./login'),
     profile: require('./profile'),
-    signup: require('./signup'),
-    home: require('./home')
 }
