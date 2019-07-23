@@ -84,9 +84,9 @@ const newUser = (req, res) => {
 }
 
 module.exports = {
+    newUser,
     createUser,
     newSession,
     createSession,
-    newUser,
     showProfile
 }
