@@ -27,7 +27,7 @@
             <h1>Comments: <%=posts[i].comments.length  %> </h1>
             <% for(let j = 0; j < posts[i].comments.length; j++) { %>
             <div class="comment" id="<% posts[i].comments[j]._id %>">
-                <h4 class="comments-user">User</h4>
+                <h4 class="comments-user"><%=posts[i].comments[j].user.firstName %></h4>
                 <p><%= posts[i].comments[j].content %></p>
             </div>
             <% } %>
