@@ -1,4 +1,43 @@
 console.log('Meet me at the park! ⚾️');
+// Constant Variables
+const USERS_API = `http://localhost:3000/api/v1/users`;
+const POSTS_API = `http://localhost:3000/api/v1/posts`;
+const users = [];
+const posts = [];
+
+
+fetch(POSTS_API, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+
+})
+    .then(res => res.json())
+    .then(data => {
+        data.data.forEach(post => {
+            posts.push(post)
+        });
+    });
+
+
+fetch(USERS_API, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+
+})
+    .then(res => res.json())
+    .then(data => {
+        data.data.forEach(user => {
+            users.push(user)
+        });
+    })
+
+console.log(posts);
+console.log(users);
+
 
 const cardTemplate = `
 <div class="wall">       
