@@ -71,7 +71,7 @@ const createSession = (req, res) => {
             if (match) {
                 req.session.currentUser = { _id: foundUser._id, firstName: foundUser.firstName, email: foundUser.email }
                 console.log(req.session.currentUser);
-                return res.redirect(`profile/show`);
+                return res.redirect(`/home`);
             }
         })
     })
