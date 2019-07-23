@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
+
+
 //  Sign up
 router.post('/signup', ctrl.usersCtrl.createUser);
 router.get('/signup', ctrl.usersCtrl.newUser);

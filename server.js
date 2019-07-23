@@ -40,12 +40,19 @@ app.use((req, res, next) => {
 
 // ------------------------------ ROUTES ------------------------------ //
 // ------------------------------ HTML ENDPOINTS ------------------------------ //
+
+// Index page
 app.get('/', (req, res) => {
     res.render('index');
 })
 
+// Login and logout routes
 app.use('/', routes.root);
+
+// Home page routes
 app.use('/home', routes.home);
+
+// Profile routes
 app.use('/profile', routes.profile);
 
 // ------------------------------ API ENDPOINTS ------------------------------ //

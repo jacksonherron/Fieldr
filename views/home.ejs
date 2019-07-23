@@ -1,6 +1,12 @@
 <% include ./partials/_head.ejs %>
 <div class="home-page">
     <h1>Hello <%= currentUser && currentUser.firstName %></h1>
-    <main id="wall"></main>
+    <div class="wall">
+        <% if (posts) { %>
+        <% for (let i = 0; i < posts.length; i++) { %>
+        <h1><%= posts[i].sport %></h1>
+        <% } %>
+        <% } %>
+    </div>
 </div>
 <% include ./partials/_footer.ejs %>
