@@ -46,9 +46,13 @@ nav a:hover{
 /* Styles what the main page should look like */
 main{
     background-color: whitesmoke;
-    height:100vh;
+    height: 1000vh;
     display: flex;
     justify-content: center;
+}
+
+main #wall{
+    height: 50%;
 }
 
 .forms{
@@ -99,6 +103,46 @@ button:hover{
     background-color:rgb(228, 180, 180);
     cursor: pointer;
 }
+
+/* Users Wall */
+.wall{
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    height:50vh;
+    width: 60vh;
+    /* overflow: hidden; */
+}
+
+.card .sport{
+    font-size: 2em;
+    background-color: whitesmoke;
+    
+}
+
+.card .descr{
+    height: 100%;
+    padding-left: .5em;
+    padding-top:.2em;
+    border: 1px solid black;
+    background-color: antiquewhite;
+}
+
+.card .descr h1{
+    margin:0;
+}
+
+.comment-field{
+    width: 60vh;
+}
+
+.inputs{
+    display: flex;
+    justify-content: space-between;
+}
+
 
 /* Bottom footer styles */
 footer{
