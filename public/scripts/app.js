@@ -9,6 +9,8 @@ const newPostForm = document.getElementById('new-post-form')
 // State variables
 const comments = [];
 
+
+
 // API Calls
 // fetch(COMMENTS_API, {
 //     method: `POST`,
