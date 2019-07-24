@@ -3,6 +3,11 @@
     --secondary-color: rgb(230, 119, 119);
 }
 
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
 /* Removes default margin and padding in browsers */
 body{
     margin: 0;
@@ -54,44 +59,28 @@ main{
     min-height: 60vh;
 }
 
-main #wall{
-    height: 50%;
-}
-
 .forms{
-    margin: 2.5em 0;
+    border: 1px solid black;
 }
 
 .forms * {
     display: block;
 }
 
-.forms label{
+.form-title {
+    font-weight: bold;
     font-size: 1.5em;
 }
 
 input{
     border-color: var(--main-color);
     font-family: sans-serif;
-    font-size: 1.5em;
-    height:7vh;
-    width:50vh;
+    height: 2em;
+    width: 20em;
+    font-size: 1em;
 }
 
-
-
-.description-container p {
-    font-size: 2em;
-    width: 60vw;
-    line-height: 1.7em;
-}
-
-.description-container .button-container{
-    display: flex;
-    justify-content: flex-end;
-}
-
-button{
+button {
     background-color: var(--secondary-color);
     height:2.5em;
     padding: 0 1em;
@@ -104,44 +93,6 @@ button{
 button:hover{
     background-color:rgb(228, 180, 180);
     cursor: pointer;
-}
-
-/* Users Wall */
-.wall{
-    display: flex;
-    flex-direction: column;
-}
-
-.card{
-    height:50vh;
-    width: 60vh;
-    /* overflow: hidden; */
-}
-
-.card .sport{
-    font-size: 2em;
-    background-color: whitesmoke;
-    
-}
-
-.card .descr{
-    height: 100%;
-    padding-left: .5em;
-    padding-top:.2em;
-    border: 1px solid black;
-    background-color: antiquewhite;
-}
-
-.card .descr h1{
-    margin:0;
-}
-/* Comments style */
-.comments-user{
-    margin: 0;
-}
-
-.comment-field{
-    width: 60vh;
 }
 
 .inputs{
@@ -167,4 +118,79 @@ footer a{
 
 footer a:hover{
     color:gray;
+}
+/* MAIN page styling */
+.hello {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/* POSTS Styling */
+#wall {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.post {
+    border: 1px solid black;
+    margin: 1em;
+    max-width: 16em;
+}
+
+.post-header {
+    position: relative;
+}
+
+.post-header .sport-name{
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    max-width: 12em;
+    padding: 0.2em;
+}
+
+.join-button {
+    position: absolute;
+    max-width: 4em;
+    top: 0;
+    right: 0;
+    margin: 0;
+}
+
+
+.post .host-name, .location{
+    font-size: 1.2em;
+}
+
+
+.descr {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.descr-title{
+    font-weight: bold;
+}
+
+.join-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.comments {
+    border: 1px solid black;
+    font-size: 0.8em;
+}
+
+.comment-form input {
+    font-size: 1em;
+    width: 5em;
+}
+
+.comments-title {
+    font-weight: bold;
 }

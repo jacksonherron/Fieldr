@@ -43,30 +43,6 @@ const showProfilePage = (req, res) => {
     } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.'}] });
 };
 
-// const showHomePage = (req, res) => {
-//     if (req.session.currentUser) {
-//         res.render('home/show.ejs', { currentUser: req.session.currentUser });
-//     } else return res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.'}] });
-// }
-
-// Queries the data base and returns all posts, then renders home/show.ejs to display them
-// const getAllFuturePosts = (req, res) => {
-//     const currentDate = new Date(Date.now());
-//     db.Post.find({ date_time: { '$gte': currentDate } })
-//         .populate('host')
-//         .populate({
-//             path: 'comments',
-//             populate: {
-//                 path: 'user',
-//             }
-//         })
-//         .exec((err, foundPosts) => {
-//             if (err) return response.sendErrorResponse(res, err);
-//             response.sendResponse(res, foundPosts);
-//         }
-//     );
-// };
-
 const createNewPost = (req, res) => {
     if (req.session.currentUser) {
         let errors = [];
