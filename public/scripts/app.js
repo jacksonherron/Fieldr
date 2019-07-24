@@ -10,7 +10,7 @@ const posts = [];
 
 // API Calls
 fetch(POSTS_API, {
-    method: 'GET',
+    method: 'POST',
     headers: {
         'Content-Type': 'application/json'
     },
