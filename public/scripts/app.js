@@ -1,25 +1,44 @@
 console.log('Meet me at the park! ⚾️');
 // Global Constants
-const COMMENTS_API = `/api/v1/comments`;
-
+const COMMENTS_API = `/`;
 const userWall = document.getElementById('wall');
-
-const newPostForm = document.getElementById('new-post-form')
+const newPostForm = document.getElementById('new-post-form');
+const main = document.querySelector('main');
 
 // State variables
 const comments = [];
+const commentForm = document.getElementsByClassName('comment-form');
 
 
+const postComment = (postId, data) => {
+    // API Calls
+    fetch(`/home/${postId}`, {
+        method: `POST`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(() => {
+            window.location.reload();
+        })
 
-// API Calls
-// fetch(COMMENTS_API, {
-//     method: `POST`,
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-// })
-//     .then(res => res.json())
-//     .then(data => console.log(data));
+}
+
+
+// Event Listeners
+main.addEventListener('click', event => {
+    if (event.target.tagName === 'BUTTON' && event.target.className === "comment-button") {
+        event.preventDefault();
+        data = {
+            content: event.target.parentNode.childNodes[1].value,
+            post_id: event.target.id
+        };
+        console.log(data);
+        postComment(data.post_id, data);
+    }
+}, false);
+
 
 
 
