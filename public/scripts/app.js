@@ -54,21 +54,23 @@ const posts = [];
 // }
 
 
+
+
 // API Calls
-// fetch(POSTS_API, {
-//     method: 'GET',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     })
-//     .then(res => res.json())
-//     .then(data => {
-//         data.data.forEach(post => {
-//             posts.push(post);
-//         });
-//         console.log('Fetched...')
-//         renderPosts();
-//     });
+fetch(POSTS_API, {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    })
+    .then(res => res.json())
+    .then(data => {
+        data.data.forEach(post => {
+            posts.push(post);
+        });
+        console.log('Fetched...')
+        renderPosts();
+    });
 
 
 
