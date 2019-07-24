@@ -22,6 +22,7 @@ const postComment = (postId, data) => {
         .then(() => {
             window.location.reload();
         })
+        .catch((err) => console.log(err));
 
 }
 
@@ -30,8 +31,10 @@ const postComment = (postId, data) => {
 main.addEventListener('click', event => {
     if (event.target.tagName === 'BUTTON' && event.target.className === "comment-button") {
         event.preventDefault();
+        console.log(event.target.parentNode.parentNode.childNodes[1].value);
+        console.log(event.target.id);
         data = {
-            content: event.target.parentNode.childNodes[1].value,
+            content: event.target.parentNode.parentNode.childNodes[1].value,
             post_id: event.target.id
         };
         console.log(data);
