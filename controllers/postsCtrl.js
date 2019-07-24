@@ -90,7 +90,12 @@ const unjoinPost = (req, res) => {
 }
 
 const deletePost = (req, res) => {
-
+    console.log(req.params.postId)
+    db.Post.findByIdAndDelete(req.params.postId, (error, deletedPost) => {
+        if (error) return res.status(400);
+        console.log(deletedPost);
+        res.sendStatus(200);
+    })
 }
 
 

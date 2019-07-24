@@ -9,7 +9,7 @@ const main = document.querySelector('main');
 const comments = [];
 const commentForm = document.getElementsByClassName('comment-form');
 
-
+// Fetch functions
 const postComment = (postId, data) => {
     // API Calls
     fetch(`/home/${postId}`, {
@@ -25,6 +25,20 @@ const postComment = (postId, data) => {
 
 }
 
+const deletePost = data => {
+    fetch(`/home/${data.postId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': `application/json`
+        },
+        // body: JSON.stringify(data)
+    })
+        .then(() => {
+            console.log(`Deleting ${data.postId}`)
+            window.location.reload();
+        })
+}
+
 
 // Event Listeners
 main.addEventListener('click', event => {
@@ -34,8 +48,13 @@ main.addEventListener('click', event => {
             content: event.target.parentNode.childNodes[1].value,
             post_id: event.target.id
         };
-        console.log(data);
         postComment(data.post_id, data);
+    }
+    if (event.target.className === 'delete-button') {
+        data = {
+            postId: event.target.parentNode.parentNode.parentNode.id
+        }
+        deletePost(data);
     }
 }, false);
 
