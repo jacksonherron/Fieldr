@@ -45,6 +45,7 @@ const joinPost = data => {
         headers: {
             'Content-Type': `application/json`
         },
+        body: JSON.stringify(data),
     })
         .then(() => {
             console.log(`You joined a group!`)
@@ -66,16 +67,18 @@ main.addEventListener('click', event => {
         postComment(data.post_id, data);
     }
     if (event.target.className === 'delete-button') {
+        event.preventDefault();
         data = {
             postId: event.target.parentNode.parentNode.parentNode.id
         }
         deletePost(data);
     }
     if (event.target.className === "join-button") {
+        event.preventDefault();
         data = {
             postId: event.target.parentNode.parentNode.parentNode.id
         }
-        console.log(data)
+        joinPost(data);
     }
 }, false);
 
