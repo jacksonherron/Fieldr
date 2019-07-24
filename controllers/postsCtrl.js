@@ -82,18 +82,31 @@ const createNewPost = (req, res) => {
 };
 
 const joinPost = (req, res) => {
-    db.User.findById(req.session.currentUser._id)
-        .exec(foundUser => {
-            foundUser.joins.push(req.params.postId);
-            foundUser.save();
-            db.Post.findById(req.params.postId).exec(foundPost => {
-                foundPost.push(foundUser._id);
-                foundPost.save();
-                res.sendStatus(200)
-            })
-            .catch(err => res.JSON({ error: err }));
+    db.Post.findById(req.params.postId, (error, foundPost) => {
+        if (error) return console.log(error);
+        db.User.findById(req.session.currentUser._id, (error, foundUser) => {
+            if (error) return console.log(error);
+            foundPost.joins.push(foundUser._id);
         })
-        .catch(err => res.JSON({ error: err }));
+            .save()
+        console.log(foundPost);
+    })
+    // db.User.findById(req.session.currentUser._id, (error, foundUser) => {
+    //     console.log(foundUser);
+    // })
+
+    // db.User.findById(req.session.currentUser._id)
+    //     .exec(foundUser => {
+    //         foundUser.joins.push(req.params.postId);
+    //         foundUser.save();
+    //         db.Post.findById(req.params.postId).exec(foundPost => {
+    //             foundPost.push(foundUser._id);
+    //             foundPost.save();
+    //             res.sendStatus(200)
+    //         })
+    //         .catch(err => res.JSON({ error: err }));
+    //     })
+    //     .catch(err => res.JSON({ error: err }));
 }
 
 const unjoinPost = (req, res) => {

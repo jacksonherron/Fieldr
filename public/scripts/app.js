@@ -40,6 +40,7 @@ const deletePost = data => {
 }
 
 const joinPost = data => {
+    console.log(data)
     fetch(`/home/${data.postId}`, {
         method: 'PUT',
         headers: {
@@ -48,7 +49,7 @@ const joinPost = data => {
     })
         .then(() => {
             console.log(`You joined a group!`)
-            window.location.reload();
+            // window.location.reload();
         })
 }
 
@@ -66,16 +67,18 @@ main.addEventListener('click', event => {
         postComment(data.post_id, data);
     }
     if (event.target.className === 'delete-button') {
+        event.preventDefault();
         data = {
             postId: event.target.parentNode.parentNode.parentNode.id
         }
         deletePost(data);
     }
     if (event.target.className === "join-button") {
+        event.preventDefault();
         data = {
             postId: event.target.parentNode.parentNode.parentNode.id
         }
-        console.log(data)
+        joinPost(data)
     }
 }, false);
 
