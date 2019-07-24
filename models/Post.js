@@ -8,7 +8,7 @@ const postSchema = new Schema({
     },
     date_time: {
         type: Date,
-        required: true,
+        // required: true,
     },
     time_posted: {
         type: Date,
@@ -21,7 +21,6 @@ const postSchema = new Schema({
     },
     descr: {
         type: String,
-        required: true,
     },
     joins: [
         {

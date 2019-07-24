@@ -1,8 +1,8 @@
 const db = require('../models');
 
-// const userList = require('./users.json');
-// const postList = require('./posts.json');
-// const commentList = require('./comments.json')
+const userList = require('./users.json');
+const postList = require('./posts.json');
+const commentList = require('./comments.json')
 
 // removes all users from db.User and add from userList
 // db.User.deleteMany({}, () => {
@@ -14,7 +14,14 @@ const db = require('../models');
 //                 postList.forEach(post => {
 //                     db.User.findOne({ firstName: post.hostedBy }, (err, foundUser) => {
 //                         if (err) return console.log(err);
-//                         db.Post.findOneAndUpdate({ sport: post.sport }, { host: foundUser._id }, { new: true }, (err, updatedPost) => {
+//                         db.Post.findOneAndUpdate(
+//                             { sport: post.sport },
+//                             { 
+//                                 host: foundUser._id,
+//                                 date_time: new Date(post.date_time_string),
+//                                 time_posted: new Date(post.time_posted_string),
+//                             },
+//                             { new: true }, (err, updatedPost) => {
 //                             if (err) return console.log(err);
 //                             foundUser.posts.push(updatedPost);
 //                             foundUser.save();
@@ -26,7 +33,10 @@ const db = require('../models');
 //                     db.Comment.insertMany(commentList, () => {
 //                         // Connects comments to posts and vice-versa
 //                         commentList.forEach(comment => {
-//                             db.Comment.findOne( { content: comment.content }, (err, foundComment) => {
+//                             db.Comment.findOneAndUpdate(
+//                                 { content: comment.content },
+//                                 { time_posted: new Date(comment.time_posted_string) },
+//                                 (err, foundComment) => {
 //                                 if (err) return console.log(err);
 //                                 db.Post.findOne({ sport: comment.postSport}, (err, foundPost) => {
 //                                     if (err) return console.log(err);
@@ -48,15 +58,10 @@ const db = require('../models');
 //     });
 // });
 
-console.log(Date.now().getISOString())
-// const currentDate = new Date(Date.now());
-// const currentISODate = currentDate.toISOString();
-// console.log(currentISODate);
 
-// db.Post.find({ date_time: { $gt: currentISODate } }, (err, foundPosts) => {
-//     if (err) return console.log(err);
-//     console.log();
-// });
+const currentDate = new Date(Date.now());
 
-// var date = new Date('1995-12-17T03:24:00');
-// console.log(date.toUTCString())
+db.Post.find({ date_time: { '$gte': currentDate } }, (err, foundPosts) => {
+    if (err) return console.log(err);
+    console.log(foundPosts);
+});

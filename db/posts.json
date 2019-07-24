@@ -1,8 +1,8 @@
 [
     {
         "sport": "Tennis",
-        "date_time": "2019-07-25T17:30:00.000Z",
-        "date_posted": "2019-07-24T17:30:00.000Z",
+        "date_time_string": "2019-07-25T17:30:00.000Z",
+        "time_posted_string": "2019-07-24T17:30:00.000Z",
         "location": "Dolores Park",
         "descr": "Looking for 1+ to play tennis together in Dolo for an hour or two!",
         "joins": [],
@@ -11,10 +11,10 @@
     },
     {
         "sport": "Baseball",
-        "date_time": "2019-07-28T17:30:00.000Z",
-        "date_posted": "2019-07-26T17:30:00.000Z",
+        "date_time_string": "2019-07-28T17:30:00.000Z",
+        "time_posted_string": "2019-07-26T17:30:00.000Z",
         "location": "West Sunset",
-        "descr": "Looking to get a pickup a game togethe for baseball",
+        "descr": "Looking to get a pickup a game together for baseball",
         "joins": [],
         "hostedBy": "Eduardo",
         "comments": []

@@ -1,18 +1,18 @@
 [
     {
-        "time_posted": "2019-07-25T12:00:00.000Z",
+        "time_posted_string": "2019-07-25T12:00:00.000Z",
         "postSport": "Tennis",
         "userName": "Eduardo",
         "content": "Sounds fun, can I bring a friend?"
     },
     {
-        "time_posted": "2019-07-27T12:00:00.000Z",
+        "time_posted_string": "2019-07-27T12:00:00.000Z",
         "postSport": "Baseball",
         "userName": "Jackson",
         "content": "See you there!"
     },
     {
-        "time_posted": "2019-07-27T14:00:00.000Z",
+        "time_posted_string": "2019-07-27T14:00:00.000Z",
         "postSport": "Baseball",
         "userName": "Eduardo",
         "content": "Sweet!"
