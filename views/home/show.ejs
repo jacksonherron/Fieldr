@@ -39,26 +39,26 @@
                         <div class="location">at <%= posts[i].location %></div>
                         <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
                     </div>
-                    <form class="comment-form">
-                        <input type="text" />
-                        <button class="comment-button" id="<%= posts[i]._id %>">Comment</button>
-                    </form>
+                        <form class="comment-form">
+                            <input type="text" />
+                            <button class="comment-button" id="<%= posts[i]._id %>">Comment</button>
+                        </form>
+                    </div>
                     <% if (posts[i].comments.length) {%>
                         <div class="comments">
                             <div class="comments-title">Comments</div>
-                            <% for(let j = 0; j < posts[i].comments.length; j++) { %>
-                                <div class="comment" id="<%= posts[i].comments[j]._id %>">
-                                    <div class="comment-author"><%=posts[i].comments[j].user.firstName %></div>
-                                    <div class="comment-content"><%= posts[i].comments[j].content %></div>
-                                </div>
-                            <% } %>
+                                <% for(let j = 0; j < posts[i].comments.length; j++) { %>
+                                    <div class="comment" id="<%= posts[i].comments[j]._id %>">
+                                        <div class="comment-author"><%=posts[i].comments[j].user.firstName %></div>
+                                        <div class="comment-content"><%= posts[i].comments[j].content %></div>
+                                    </div>
+                                <% } %>
+                            </div>
                         </div>
                     <% } %>
                 </div>
-                <% } %>
-            </div>
             <% } %>
-            <% } %>
+        <% } %>
     </section>
 </div>
 <% include ../partials/_footer.ejs %>
