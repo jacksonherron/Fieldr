@@ -1,9 +1,16 @@
 :root{
     --main-color:rgb(166, 210, 235);
     --secondary-color: rgb(230, 119, 119);
- }
- /* Removes default margin and padding in browsers */
- body{
+
+}
+
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/* Removes default margin and padding in browsers */
+body{
     margin: 0;
     padding: 0;
     position: relative;
@@ -44,75 +51,29 @@
     display: flex;
     justify-content: center;
     min-height: 60vh;
- }
- main #wall{
-    height: 50%;
- }
- 
- :root{
-    --main-color:rgb(166, 210, 235);
-    --secondary-color: rgb(230, 119, 119);
- }
- /* Removes default margin and padding in browsers */
- body{
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overscroll-behavior: none;
- }
- /* Styles the top third of the page */
- nav{
-    background-color: var(--main-color);
-    top: 0;
-    height: 20vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
- }
- nav .headers{
-    color: var(--secondary-color);
-    margin-left: 0.5em;
- }
- nav .headers h1{
-    font-size: 3em;
-    margin-bottom: 0;
- }
- nav .headers h3{
-    font-size: 2em;
-    margin: 0;
- }
- nav a {
-    text-decoration: none;
-    font-size: 2em;
-    color: var(--secondary-color);
-    margin-right: 1em;
- }
- nav a:hover{
-    color:white;
- }
- /* Styles what the main page should look like */
- main{
-    display: flex;
-    justify-content: center;
-    min-height: 60vh;
- }
- main #wall{
-    height: 50%;
- }
- 
- #forms{
-    margin: 2.5em 0;
- }
+}
+
+.forms{
+    border: 1px solid black;
+}
 
  .forms * {
     display: block;
- }
- .forms label{
-    font-size: 1.5em;
+}
+
+.form-title {
+    font-weight: bold;
+
  }
  input{
     border-color: var(--main-color);
     font-family: sans-serif;
+    height: 2em;
+    width: 20em;
+    font-size: 1em;
+}
+
+button {
     font-size: 1.5em;
     height:7vh;
     width:50vh;
@@ -138,7 +99,108 @@
  button:hover{
     background-color:rgb(228, 180, 180);
     cursor: pointer;
- }
+
+}
+
+.inputs{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Bottom footer styles */
+footer{
+    background-color: black;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a{
+    color:whitesmoke;
+    padding:1em;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color:gray;
+}
+/* MAIN page styling */
+.hello {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/* POSTS Styling */
+#wall {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.post {
+    border: 1px solid black;
+    margin: 1em;
+    max-width: 16em;
+}
+
+.post-header {
+    position: relative;
+}
+
+.post-header .sport-name{
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    max-width: 12em;
+    padding: 0.2em;
+}
+
+.join-button {
+    position: absolute;
+    max-width: 4em;
+    top: 0;
+    right: 0;
+    margin: 0;
+}
+
+
+.post .host-name, .location{
+    font-size: 1.2em;
+}
+
+
+.descr {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.descr-title{
+    font-weight: bold;
+}
+
+.join-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.comments {
+    border: 1px solid black;
+    font-size: 0.8em;
+}
+
+.comment-form input {
+    font-size: 1em;
+    width: 5em;
+}
+
+.comments-title {
+    font-weight: bold;
+}
  /* Users Wall */
  .wall{
     display: flex;

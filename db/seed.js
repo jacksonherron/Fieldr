@@ -16,13 +16,14 @@ db.User.deleteMany({}, () => {
                         if (err) return console.log(err);
                         db.Post.findOneAndUpdate(
                             { sport: post.sport },
+
                             {
                                 host: foundUser._id,
                                 date_time: new Date(post.date_time_string),
                                 time_posted: new Date(post.time_posted_string),
                             },
                             { new: true }, (err, updatedPost) => {
-                                if (err) return console.log(err);
+                      if (err) return console.log(err);
                                 foundUser.posts.push(updatedPost);
                                 foundUser.save();
                             });
@@ -37,6 +38,7 @@ db.User.deleteMany({}, () => {
                                 { content: comment.content },
                                 { time_posted: new Date(comment.time_posted_string) },
                                 (err, foundComment) => {
+
                                     if (err) return console.log(err);
                                     db.Post.findOne({ sport: comment.postSport }, (err, foundPost) => {
                                         if (err) return console.log(err);
@@ -59,7 +61,9 @@ db.User.deleteMany({}, () => {
 });
 
 
+
 // const currentDate = new Date(Date.now());
+
 
 // db.Post.find({ date_time: { '$gte': currentDate } }, (err, foundPosts) => {
 //     if (err) return console.log(err);
