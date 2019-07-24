@@ -11,11 +11,8 @@ router.post('/', ctrl.postsCtrl.createNewPost);
 // Create new comment
 router.post('/:postId/', ctrl.commentsCtrl.createNewComment);
 
-// Join
+// Join/Unjoin
 router.put('/:postId/', ctrl.postsCtrl.joinPost)
-
-// Unjoin
-router.put('/:postId/', ctrl.postsCtrl.unjoinPost)
 
 // Delete post
 router.delete('/:postId/', ctrl.postsCtrl.deletePost)

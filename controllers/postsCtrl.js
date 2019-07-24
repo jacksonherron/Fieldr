@@ -82,19 +82,20 @@ const createNewPost = (req, res) => {
 };
 
 const joinPost = (req, res) => {
-    db.User.findById(req.session.currentUser._id)
-        .exec(foundUser => {
-            foundUser.joins.push(req.params.postId);
-            foundUser.save();
-            db.Post.findById(req.params.postId).exec(foundPost => {
-                foundPost.push(foundUser._id);
-                foundPost.save();
-                res.sendStatus(200)
-            })
-            .catch(err => res.JSON({ error: err }));
-        })
-        .catch(err => res.JSON({ error: err }));
-}
+    db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        if (err) return res.JSON({ status: 400, error: err });
+        console.log('foundUser:', foundUser)
+        foundUser.joins.push(req.params.postId);
+        foundUser.save();
+        db.Post.findById(req.params.postId, (err, foundPost) => {
+            if (err) return res.JSON({ status: 400, error: err });
+            console.log('foundPost', foundPost);
+            foundPost.joins.push(foundUser._id);
+            foundPost.save();
+            res.sendStatus(200)
+        });
+    });
+};
 
 const unjoinPost = (req, res) => {
 
