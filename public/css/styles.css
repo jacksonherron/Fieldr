@@ -107,32 +107,28 @@ button:hover{
 }
 
 /* Users Wall */
-.wall{
+.post{
     display: flex;
     flex-direction: column;
 }
-
-.card{
+.post-content{
     height:50vh;
     width: 60vh;
     /* overflow: hidden; */
 }
-
-.card .sport{
+.post-content .sport-name{
     font-size: 2em;
     background-color: whitesmoke;
     
 }
-
-.card .descr{
+.post-content .descr{
     height: 100%;
     padding-left: .5em;
     padding-top:.2em;
     border: 1px solid black;
     background-color: antiquewhite;
 }
-
-.card .descr h1{
+.post-content .descr h1{
     margin:0;
 }
 /* Comments style */
