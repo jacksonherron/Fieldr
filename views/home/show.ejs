@@ -33,9 +33,12 @@
             <div class="post-content">
                 <div class="post-header">
                     <div class="sport-name"><%= posts[i].sport %></div>
-                    <div class="delete-button">&#10060</div>
+                    <% if(currentUser._id===posts[i].host._id) {%>
+                    <% include ../partials/_delete-button.ejs %>
+                    <%}%>
                 </div>
-                <div class="host-name">Hosted by <%= posts[i].host.firstName %> <%= posts[i].host.lastName %></div>
+                <div class="host-name">Hosted by <%= posts[i].host.firstName %> <%= posts[i].host.lastName %>
+                </div>
                 <div class="location">at <%= posts[i].location %></div>
                 <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
             </div>
