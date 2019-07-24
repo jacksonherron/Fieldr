@@ -82,7 +82,18 @@ const createNewPost = (req, res) => {
 };
 
 const joinPost = (req, res) => {
-
+    db.User.findById(req.session.currentUser._id)
+        .exec(foundUser => {
+            foundUser.joins.push(req.params.postId);
+            foundUser.save();
+            db.Post.findById(req.params.postId).exec(foundPost => {
+                foundPost.push(foundUser._id);
+                foundPost.save();
+                res.sendStatus(200)
+            })
+            .catch(err => res.JSON({ error: err }));
+        })
+        .catch(err => res.JSON({ error: err }));
 }
 
 const unjoinPost = (req, res) => {
