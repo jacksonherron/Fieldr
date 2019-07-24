@@ -25,7 +25,7 @@
             <input type="submit" id="submit-btn" value="Submit" />
         </form>
     </section> -->
-        
+
     <section id="wall">
         <% if (posts) { %>
             <% for (let i = 0; i < posts.length; i++) { %>
@@ -55,8 +55,10 @@
                         </div>
                     <% } %>
                 </div>
+                <% } %>
+            </div>
             <% } %>
-        <% } %>
+            <% } %>
     </section>
 </div>
 <% include ../partials/_footer.ejs %>
