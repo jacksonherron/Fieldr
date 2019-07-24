@@ -1,32 +1,62 @@
 <% include ../partials/_head.ejs %>
 <div class="home-page">
     <h1>Hello <%= currentUser && currentUser.firstName %></h1>
-    
+
     <section class="forms">
-            <h1>New Post</h1>
-            <form id="new-post-form" method="POST" action="/home">
-                <div class="form-group">
-                    <label for="sport">Sport</label>
-                    <input type="text" id="sportInput" name="sport" />
-                </div>
-                <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" id="locationInput" name="location" />
-                    </div>
-                <div class="form-group">
-                    <label for="date_time">Date and Time</label>
-                    <input type="datetime-local" id="date_timeInput" name="date_time" />
-                </div>
-                <div class="form-group">
-                    <label for="descr">Description</label>
-                    <input type="text" id="descrInput" name="descr" />
-                </div>
-                <input type="submit" id="submit-btn" value="Submit" />
-            </form>
-        </section>
-        
+        <h1>New Post</h1>
+        <form id="new-post-form" method="POST" action="/home">
+            <div class="form-group">
+                <label for="sport">Sport</label>
+                <input type="text" id="sportInput" name="sport" />
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="locationInput" name="location" />
+            </div>
+            <div class="form-group">
+                <label for="date_time">Date and Time</label>
+                <input type="datetime-local" id="date_timeInput" name="date_time" />
+            </div>
+            <div class="form-group">
+                <label for="descr">Description</label>
+                <input type="text" id="descrInput" name="descr" />
+            </div>
+            <input type="submit" id="submit-btn" value="Submit" />
+        </form>
+    </section>
+
     <section id="wall">
         <% if (posts) { %>
+<<<<<<< HEAD
+        <% for (let i = 0; i < posts.length; i++) { %>
+        <div class="post">
+            <div class="post-content">
+                <div class="sport-name">
+                    <%= posts[i].sport %>
+                </div>
+                <div class="descr">
+                    <h1><%= posts[i].host.firstName %></h1>
+                    <%= posts[i].descr %>
+                </div>
+            </div>
+            <div class="comment-form">
+                <form>
+                    <div class="inputs">
+                        <input type="text" name="content" />
+                        <button class="comment-button" id="<%= posts[i]._id %>">Comment</button>
+                    </div>
+                </form>
+            </div>
+            <% if (posts[i].comments.length) {%>
+            <div class="comments" <div class="comments-title">Comments</div>
+            <% for(let j = 0; j < posts[i].comments.length; j++) { %>
+            <div class="comment" id="<%= posts[i].comments[j]._id %>">
+                <div class="comment-author"><%=posts[i].comments[j].user.firstName %></div>
+                <div class="comment-content"><%= posts[i].comments[j].content %></div>
+            </div>
+            <% } %>
+            <div>
+=======
             <% for (let i = 0; i < posts.length; i++) { %>
                 <div class="post">
                     <div class="post-content">
@@ -58,8 +88,11 @@
                         <div>
                     <% } %>
                 </div>
+>>>>>>> 1ec293b61125e783ca004850b6079c5ef1c18af2
+                <% } %>
+            </div>
             <% } %>
-        <% } %>
+            <% } %>
     </section>
 </div>
 <% include ../partials/_footer.ejs %>
