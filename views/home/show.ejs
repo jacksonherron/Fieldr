@@ -56,7 +56,8 @@
                 <% for(let j = 0; j < posts[i].comments.length; j++) { %>
                 <div class="comment" id="<%= posts[i].comments[j]._id %>">
                     <div class="comment">
-                        <span class="comment-author"><%=posts[i].comments[j].user.firstName %> <%=posts[i].comments[j].user.lastName %></span>
+                        <span class="comment-author"><%=posts[i].comments[j].user.firstName %>
+                            <%=posts[i].comments[j].user.lastName %></span>
                         <span class="comment-content"><%= posts[i].comments[j].content %></span>
                     </div>
                 </div>
