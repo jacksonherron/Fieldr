@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
-router.get('/', ctrl.postsCtrl.showProfile);
+// Get all connected posts and render profile page
+router.get('/', ctrl.postsCtrl.showProfilePage);
 
 // Create new post
 router.post('/', ctrl.postsCtrl.createNewPost);

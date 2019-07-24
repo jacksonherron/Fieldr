@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
-// Render home page
+// Get all future posts to render home page
 router.get('/', ctrl.postsCtrl.showHomePage);
 
 // Create new post
@@ -21,6 +21,6 @@ router.put('/:postId/', ctrl.postsCtrl.unjoinPost)
 router.delete('/:postId/', ctrl.postsCtrl.deletePost)
 
 // Delete comment
-router.delete('/:postId/commentId/', ctrl.commentsCtrl.deleteComment)
+router.delete('/:postId/:commentId/', ctrl.commentsCtrl.deleteComment)
 
 module.exports = router;
