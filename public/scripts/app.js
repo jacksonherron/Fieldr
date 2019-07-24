@@ -32,10 +32,22 @@ const deletePost = data => {
         headers: {
             'Content-Type': `application/json`
         },
-        // body: JSON.stringify(data)
     })
         .then(() => {
             console.log(`Deleting ${data.postId}`)
+            window.location.reload();
+        })
+}
+
+const joinPost = data => {
+    fetch(`/home/${data.postId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': `application/json`
+        },
+    })
+        .then(() => {
+            console.log(`You joined a group!`)
             window.location.reload();
         })
 }
@@ -58,6 +70,12 @@ main.addEventListener('click', event => {
             postId: event.target.parentNode.parentNode.parentNode.id
         }
         deletePost(data);
+    }
+    if (event.target.className === "join-button") {
+        data = {
+            postId: event.target.parentNode.parentNode.parentNode.id
+        }
+        console.log(data)
     }
 }, false);
 
