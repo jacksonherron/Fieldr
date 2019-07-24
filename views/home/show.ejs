@@ -27,6 +27,7 @@
 
     <section id="wall">
         <% if (posts) { %>
+<<<<<<< HEAD
         <% for (let i = 0; i < posts.length; i++) { %>
         <div class="post">
             <div class="post-content">
@@ -55,6 +56,39 @@
             </div>
             <% } %>
             <div>
+=======
+            <% for (let i = 0; i < posts.length; i++) { %>
+                <div class="post">
+                    <div class="post-content">
+                        <div class="sport-name">
+                            <%= posts[i].sport %>
+                        </div>
+                        <div class="descr">
+                            <h1><%= posts[i].host.firstName %></h1>
+                            <%= posts[i].descr %>
+                        </div>
+                    </div>
+                    <div class="comment-form">
+                        <form>
+                            <div class="inputs">
+                                <input type="text" />
+                                <button id="<%= posts[i]._id %>"></button>
+                            </div>
+                        </form>
+                    </div>
+                    <% if (posts[i].comments.length) {%>
+                        <div class="comments"
+                            <div class="comments-title">Comments</div>
+                            <% for(let j = 0; j < posts[i].comments.length; j++) { %>
+                                <div class="comment" id="<%= posts[i].comments[j]._id %>">
+                                    <div class="comment-author"><%=posts[i].comments[j].user.firstName %></div>
+                                    <div class="comment-content"><%= posts[i].comments[j].content %></div>
+                                </div>
+                            <% } %>
+                        <div>
+                    <% } %>
+                </div>
+>>>>>>> 1ec293b61125e783ca004850b6079c5ef1c18af2
                 <% } %>
             </div>
             <% } %>
