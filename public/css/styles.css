@@ -76,7 +76,7 @@ body{
 button {
     font-size: 1.5em;
     height:7vh;
-    width:50vh;
+    width:20vh;
  }
  .description-container p {
     font-size: 2em;
@@ -159,15 +159,6 @@ footer a:hover{
     padding: 0.2em;
 }
 
-.join-button {
-    position: absolute;
-    max-width: 4em;
-    top: 0;
-    right: 0;
-    margin: 0;
-}
-
-
 .post .host-name, .location{
     font-size: 1.2em;
 }
@@ -182,10 +173,11 @@ footer a:hover{
     font-weight: bold;
 }
 
-.join-button {
+.delete-button {
     position: absolute;
     top: 0;
     right: 0;
+    width: 1em;
 }
 
 .comments {
@@ -195,7 +187,12 @@ footer a:hover{
 
 .comment-form input {
     font-size: 1em;
-    width: 5em;
+    width: 100%;
+}
+
+.spacer-container{
+    display: flex;
+    justify-content: space-between;
 }
 
 .comments-title {
