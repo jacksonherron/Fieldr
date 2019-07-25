@@ -76,7 +76,6 @@ const showProfilePage = (req, res) => {
 };
 
 const createNewPost = (req, res) => {
-    console.log(req.originalUrl);
     if (req.session.currentUser) {
         let errors = [];
         if (!req.body.sport) {
@@ -102,7 +101,6 @@ const createNewPost = (req, res) => {
 
                     if (error) return res.render(req.originalUrl, { currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again.' }] });
                     foundUser.posts.push(createdPost._id);
-                    console.log(req.originalUrl);
                     return res.redirect(req.originalUrl);
                 });
         });
@@ -141,10 +139,8 @@ const joinPost = (req, res) => {
 };
 
 const deletePost = (req, res) => {
-    console.log(req.params.postId)
     db.Post.findByIdAndDelete(req.params.postId, (error, deletedPost) => {
         if (error) return res.status(400);
-        console.log(deletedPost);
         res.sendStatus(200);
     })
 }
