@@ -67,7 +67,7 @@ const createSession = (req, res) => {
             if (!match) return res.render(`login`, { errors: [{ message: `Invalid username and/or password` }] });
 
             if (match) {
-                req.session.currentUser = { _id: foundUser._id, firstName: foundUser.firstName, lastName: foundUser.lastName, email: foundUser.email, sign_up_date: foundUser.sign_up_date.toString() };
+                req.session.currentUser = { _id: foundUser._id, firstName: foundUser.firstName, lastName: foundUser.lastName, email: foundUser.email, sign_up_date: foundUser.sign_up_date };
                 return res.redirect(`/home`);
             }
         })

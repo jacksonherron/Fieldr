@@ -1,4 +1,20 @@
 <% include ../partials/_head.ejs %>
+
+<% const months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+<% const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] %>
+<% const convertTime = (hour, minute) => { %>
+    <% if (minute < 10) { %>
+        <% minute = '0' + minute %>
+    <% } %>
+    <% if (hour <= 12) { %>
+        <% if (hour < 1) { %>
+            <% return `$12:${minute} AM` %>
+        <% } %> 
+        <% return `${hour}:${minute} AM` %>
+    <% } %>
+    <% return `${hour-12}:${minute} PM` %>
+<% } %>
+
 <div class="home-page">
     <div class="hello">Hello <%= currentUser && currentUser.firstName %></div>
 
@@ -16,6 +32,7 @@
                     <% if(currentUser._id.toString()===posts[i].host._id.toString()) {%>
                     <% include ../partials/_delete-button.ejs %>
                     <%};%>
+                    <div class="post-date"><%= days[posts[i].date_time.getDay()] %> <%= months[posts[i].date_time.getMonth()] %> <%= posts[i].date_time.getDate() %>, <%= posts[i].date_time.getFullYear() %> at <%= convertTime(posts[i].date_time.getHours(), posts[i].date_time.getMinutes()) %></div>
                 </div>
                 <div class="host-name">Hosted by <%= posts[i].host.firstName %> <%= posts[i].host.lastName %>
                 </div>

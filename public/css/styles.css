@@ -1,6 +1,9 @@
 :root{
-   --main-color:rgb(166, 210, 235);
-   --secondary-color: rgb(230, 119, 119);
+   --red:#CE2310;
+   --blue: #2339FF;
+   --yellow: #FCD92A;
+   --black: #080708;
+   --white: #FDFFFC;
 
 }
 
@@ -10,49 +13,79 @@
 }
 
 /* Removes default margin and padding in browsers */
-body{
+body {
    margin: 0;
    padding: 0;
    position: relative;
    overscroll-behavior: none;
+   min-height: 100vh;
 }
-/* Styles the top third of the page */
-nav{
-   background-color: var(--main-color);
+
+main{
+   display: flex;
+   justify-content: center;
+}
+
+/* Nav styles */
+nav {
+   background-color: var(--yellow);
    top: 0;
-   height: 20vh;
    display: flex;
    justify-content: space-between;
    align-items: flex-end;
+   height: 4em;
 }
-nav .headers{
-   color: var(--secondary-color);
-   margin-left: 0.5em;
+
+nav * {
+   font-family: 'Passion One', cursive;
 }
-nav .headers h1{
+
+nav .header * {
    font-size: 3em;
-   margin-bottom: 0;
+   font-family: 'Passion One', cursive;
+   margin-left: 1em;
 }
-nav .headers h3{
-   font-size: 2em;
-   margin: 0;
-}
+
 nav a {
    text-decoration: none;
    font-size: 2em;
-   color: var(--secondary-color);
+   color: black;
    margin-right: 1em;
 }
 nav a:hover{
    color:white;
 }
-/* Styles what the main page should look like */
-main{
+
+/* Footer styles */
+footer {
    display: flex;
+   flex-direction: column;
    justify-content: center;
-   min-height: 60vh;
+   align-items: center;
+   background-color: black;
+   height: 20vh;
+   text-align: center;
+   color: white;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   left: 0;
 }
 
+footer .jackson{
+   display: inline;
+}
+footer a{
+  color:white;
+  padding:1em;
+  text-decoration: none;
+}
+footer a:hover{
+  color: var(--yellow)
+}
+
+
+/* Forms styling */
 .forms{
    border: 1px solid black;
 }
@@ -71,18 +104,13 @@ position: relative;
 }
 
 input{
-   border-color: var(--main-color);
+   border-color: var(--red);
    font-family: sans-serif;
    height: 2em;
    width: 20em;
    font-size: 1em;
 }
 
-button {
-   font-size: 1.5em;
-   height:7vh;
-   width:20vh;
-}
 .description-container p {
    font-size: 2em;
    width: 60vw;
@@ -93,7 +121,7 @@ button {
    justify-content: flex-end;
 }
 button{
-   background-color: var(--secondary-color);
+   background-color: var(--yellow);
    height:2.5em;
    padding: 0 1em;
    font-size: 1em;
@@ -102,39 +130,13 @@ button{
    border-radius: 1em;
 }
 button:hover{
-   background-color:rgb(228, 180, 180);
+   font-weight: bold;
    cursor: pointer;
-
 }
 
 .inputs{
    display: flex;
    justify-content: space-between;
-}
-
-
-/* Bottom footer styles */
-footer{
-   background-color: black;
-   height: 20vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-footer a{
-   color:whitesmoke;
-   padding:1em;
-   text-decoration: none;
-}
-
-footer a:hover{
-   color:gray;
-}
-/* MAIN page styling */
-.hello {
-   font-size: 2em;
-   font-weight: bold;
 }
 
 
@@ -221,14 +223,12 @@ footer a:hover{
 }
 .card .sport{
    font-size: 2em;
-   background-color: whitesmoke;
 }
 .card .descr{
    height: 100%;
    padding-left: .5em;
    padding-top:.2em;
    border: 1px solid black;
-   background-color: antiquewhite;
 }
 .card .descr h1{
    margin:0;
@@ -244,22 +244,6 @@ footer a:hover{
    display: flex;
    justify-content: space-between;
 }
-/* Bottom footer styles */
-footer{
-   background-color: black;
-   height: 20vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-footer a{
-   color:whitesmoke;
-   padding:1em;
-   text-decoration: none;
-}
-footer a:hover{
-   color:gray;
-}
 
 form * {
    display: block;
@@ -269,12 +253,17 @@ form * {
 }
 
 input{
-   border-color: var(--main-color);
+   border-color: var(--red);
    font-family: sans-serif;
    font-size: 1.5em;
    height:7vh;
    width:50vh;
 }
+
+input:focus {
+   outline: none;
+}
+
 .description-container p {
    font-size: 2em;
    width: 60vw;
@@ -284,19 +273,7 @@ input{
    display: flex;
    justify-content: flex-end;
 }
-button{
-   background-color: var(--secondary-color);
-   height:2.5em;
-   padding: 0 1em;
-   font-size: 1em;
-   color:white;
-   margin:1em;
-   border-radius: 1em;
-}
-button:hover{
-   background-color:rgb(228, 180, 180);
-   cursor: pointer;
-}
+
 /* Users Wall */
 .wall{
    display: flex;
@@ -331,29 +308,4 @@ button:hover{
 .inputs{
    display: flex;
    justify-content: space-between;
-}
-/* Bottom footer styles */
-footer{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: black;
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    text-align: center;
-}
-
-footer .jackson{
-    display: inline;
-}
-footer a{
-   color:whitesmoke;
-   padding:1em;
-   text-decoration: none;
-}
-footer a:hover{
-   color:gray;
 }
