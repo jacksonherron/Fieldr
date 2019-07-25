@@ -57,8 +57,9 @@ const joinPost = data => {
 
 const appendForm = container => {
     const template = `
-    <div class="form-to-be-appended">
+    <div class="form-to-be-appended" id="form-to-be-appended">
             <div class="form-title">New Post</div>
+            <div class="delete-button" id="postToggle">&#10060</div>
             <form id="new-post-form" method="POST" action="/home">
                 <div class="form-group">
                     <label for="sport">Sport</label>
@@ -113,6 +114,10 @@ main.addEventListener('click', event => {
     if (event.target.id === "new-post-button") {
         const newPostContainer = event.target.parentNode;
         appendForm(newPostContainer);
+    }
+    if (event.target.id === "postToggle") {
+        event.preventDefault();
+        console.log(event);
     }
 }, false);
 

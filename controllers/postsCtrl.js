@@ -1,6 +1,14 @@
 const db = require('../models');
 const response = require('./response');
 
+// Global functions
+
+const equalsId = (element) => {
+
+}
+
+
+
 const showHomePage = (req, res) => {
     if (req.session.currentUser) {
         const currentDate = new Date(Date.now());
@@ -22,10 +30,16 @@ const showHomePage = (req, res) => {
     } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
 };
 
+
 const showProfilePage = (req, res) => {
     if (req.session.currentUser) {
         const currentDate = new Date(Date.now());
-        db.Post.find({ date_time: { '$gte': currentDate } })
+        db.Post.find({
+            $and : [
+                { date_time: { '$gte': currentDate } },
+                { $or : [ { joins: { $in: req.session.currentUser._id } }, { host: req.session.currentUser._id } ] }
+            ]
+        })
             .populate('host')
             .populate({
                 path: 'comments',
@@ -37,7 +51,7 @@ const showProfilePage = (req, res) => {
             })
             .exec((err, foundPosts) => {
                 if (err) return res.render('home/show.ejs', { currentUser: req.session.currentUser });
-                res.render('home/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
+                res.render('profile/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
             })
 
     } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
@@ -60,9 +74,7 @@ const createNewPost = (req, res) => {
             errors.push({ message: 'Something went wrong, please log in and try again.' });
             return res.render('login', { errors });
         }
-        if (errors.length) {
-            return res.render('home/show.ejs', { currentUser: req.session.currentUser, errors })
-        }
+        if (errors.length) return res.render('home/show.ejs', { currentUser: req.session.currentUser, errors });
         db.User.findById(req.session.currentUser._id, (error, foundUser) => {
             if (error) return res.render('home/show.ejs', { currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again' }] });
             db.Post.create({
@@ -75,11 +87,14 @@ const createNewPost = (req, res) => {
                 (error, createdPost) => {
                     if (error) return res.render('home/show.ejs', { currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again.' }] });
                     foundUser.posts.push(createdPost._id);
-                    return res.redirect('/home');
+                    console.log(req.originalUrl);
+                    return res.redirect(req.originalUrl);
                 });
         });
     } else return res.render('login', { errors: [{ message: 'Something went wrong, please log in and try again' }] });
 };
+
+
 
 const joinPost = (req, res) => {
     db.User.findById(req.session.currentUser._id, (err, foundUser) => {
@@ -90,22 +105,31 @@ const joinPost = (req, res) => {
             })
         }
         if (err) return res.JSON({ status: 400, error: err });
-        console.log('foundUser:', foundUser)
-        foundUser.joins.push(req.params.postId);
-        foundUser.save();
-        db.Post.findById(req.params.postId, (err, foundPost) => {
-            if (err) return res.JSON({ status: 400, error: err });
-            console.log('foundPost', foundPost);
-            foundPost.joins.push(foundUser._id);
-            foundPost.save();
-            res.sendStatus(200)
-        });
+        // This block of code triggers if the user has already joined the post
+        if (foundUser.joins.includes(req.params.postId)) {
+            foundUser.joins.pull(req.params.postId);
+            foundUser.save();
+            db.Post.findById(req.params.postId, (err, foundPost) => {
+                if (err) return res.JSON({ status: 400, error: err });
+                foundPost.joins.pull(req.session.currentUser._id);
+                foundPost.save();
+                res.redirect('/profile');
+            });
+        } 
+        
+        // This block of code triggers if the user has NOT already joined the post
+        else {
+            foundUser.joins.push(req.params.postId);
+            foundUser.save();
+            db.Post.findById(req.params.postId, (err, foundPost) => {
+                if (err) return res.JSON({ status: 400, error: err });
+                foundPost.joins.push(req.session.currentUser._id);
+                foundPost.save();
+                res.redirect('/profile');
+            });
+        };
     });
 };
-
-const unjoinPost = (req, res) => {
-
-}
 
 const deletePost = (req, res) => {
     console.log(req.params.postId)
@@ -122,6 +146,5 @@ module.exports = {
     showProfilePage,
     createNewPost,
     joinPost,
-    unjoinPost,
     deletePost
 }

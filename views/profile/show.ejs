@@ -1,5 +1,72 @@
 <% include ../partials/_head.ejs %>
-<div class="user-profile">
-    <h1>Hello <%= currentUser && currentUser.firstName  %> </h1>
+<div class="home-page">
+    <div class="hello">Hello <%= currentUser && currentUser.firstName %></div>
+    <button id="new-post-button">New Post</button>
+
+    <section class="forms new-post-form-block">
+        <div class="form-title">New Post</div>
+        <form id="new-post-form" method="POST" action="/profile">
+            <div class="form-group">
+                <label for="sport">Sport</label>
+                <input type="text" id="sportInput" name="sport" />
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="locationInput" name="location" />
+            </div>
+            <div class="form-group">
+                <label for="date_time">Date and Time</label>
+                <input type="datetime-local" id="date_timeInput" name="date_time" />
+            </div>
+            <div class="form-group">
+                <label for="descr">Description</label>
+                <input type="text" id="descrInput" name="descr" />
+            </div>
+            <input type="submit" id="submit-btn" value="Submit" />
+        </form>
+    </section>
+
+    <section id="wall">
+        <% if (posts) { %>
+        <% for (let i = 0; i < posts.length; i++) { %>
+        <div class="post" id="<%= posts[i]._id %>">
+            <div class="post-content">
+                <div class="post-header">
+                    <div class="sport-name"><%= posts[i].sport %></div>
+                    <% if(currentUser._id.toString()===posts[i].host._id.toString()) {%>
+                    <% include ../partials/_delete-button.ejs %>
+                    <%};%>
+                </div>
+                <div class="host-name">Hosted by <%= posts[i].host.firstName %> <%= posts[i].host.lastName %>
+                </div>
+                <div class="location">at <%= posts[i].location %></div>
+                <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
+            </div>
+            <form class="comment-form">
+                <input type="text" />
+                <div class="spacer-container">
+                    <button class="join-button" id="<%= posts[i]._id %>">Join</button>
+                    <button class="comment-button" id="<%= posts[i]._id %>">Comment</button>
+                </div>
+
+            </form>
+            <% if (posts[i].comments.length) {%>
+            <div class="comments">
+                <div class="comments-title">Comments</div>
+                <% for(let j = 0; j < posts[i].comments.length; j++) { %>
+                <div class="comment" id="<%= posts[i].comments[j]._id %>">
+                    <div class="comment">
+                        <span class="comment-author"><%=posts[i].comments[j].user.firstName %>
+                            <%=posts[i].comments[j].user.lastName %></span>
+                        <span class="comment-content"><%= posts[i].comments[j].content %></span>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        <% } %>
+    </section>
 </div>
 <% include ../partials/_footer.ejs %>
