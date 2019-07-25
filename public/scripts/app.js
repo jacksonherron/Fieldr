@@ -4,6 +4,7 @@ const COMMENTS_API = `/`;
 const userWall = document.getElementById('wall');
 const newPostForm = document.getElementById('new-post-form');
 const main = document.querySelector('main');
+const formBlock = document.getElementsByClassName('new-post-form-block');
 
 // State variables
 const comments = [];
@@ -46,11 +47,40 @@ const joinPost = data => {
         headers: {
             'Content-Type': `application/json`
         },
+        body: JSON.stringify(data),
     })
         .then(() => {
             console.log(`You joined a group!`)
-            // window.location.reload();
+            window.location.reload();
         })
+}
+
+const appendForm = container => {
+    const template = `
+    <div class="form-to-be-appended">
+            <div class="form-title">New Post</div>
+            <form id="new-post-form" method="POST" action="/home">
+                <div class="form-group">
+                    <label for="sport">Sport</label>
+                    <input type="text" id="sportInput" name="sport" />
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="locationInput" name="location" />
+                </div>
+                <div class="form-group">
+                    <label for="date_time">Date and Time</label>
+                    <input type="datetime-local" id="date_timeInput" name="date_time" />
+                </div>
+                <div class="form-group">
+                    <label for="descr">Description</label>
+                    <input type="text" id="descrInput" name="descr" />
+                </div>
+                <input type="submit" id="submit-btn" value="Submit" />
+            </form>
+        </div>
+    `
+    container.insertAdjacentHTML('afterend', template);
 }
 
 
@@ -78,7 +108,11 @@ main.addEventListener('click', event => {
         data = {
             postId: event.target.parentNode.parentNode.parentNode.id
         }
-        joinPost(data)
+        joinPost(data);
+    }
+    if (event.target.id === "new-post-button") {
+        const newPostContainer = event.target.parentNode;
+        appendForm(newPostContainer);
     }
 }, false);
 

@@ -82,32 +82,26 @@ const createNewPost = (req, res) => {
 };
 
 const joinPost = (req, res) => {
-    db.Post.findById(req.params.postId, (error, foundPost) => {
-        if (error) return console.log(error);
-        db.User.findById(req.session.currentUser._id, (error, foundUser) => {
-            if (error) return console.log(error);
+    db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        if (foundUser.joins.includes(req.params.postId)) {
+            return res.status({
+                status: 400,
+                message: `Already joined`
+            })
+        }
+        if (err) return res.JSON({ status: 400, error: err });
+        console.log('foundUser:', foundUser)
+        foundUser.joins.push(req.params.postId);
+        foundUser.save();
+        db.Post.findById(req.params.postId, (err, foundPost) => {
+            if (err) return res.JSON({ status: 400, error: err });
+            console.log('foundPost', foundPost);
             foundPost.joins.push(foundUser._id);
-        })
-            .save()
-        console.log(foundPost);
-    })
-    // db.User.findById(req.session.currentUser._id, (error, foundUser) => {
-    //     console.log(foundUser);
-    // })
-
-    // db.User.findById(req.session.currentUser._id)
-    //     .exec(foundUser => {
-    //         foundUser.joins.push(req.params.postId);
-    //         foundUser.save();
-    //         db.Post.findById(req.params.postId).exec(foundPost => {
-    //             foundPost.push(foundUser._id);
-    //             foundPost.save();
-    //             res.sendStatus(200)
-    //         })
-    //         .catch(err => res.JSON({ error: err }));
-    //     })
-    //     .catch(err => res.JSON({ error: err }));
-}
+            foundPost.save();
+            res.sendStatus(200)
+        });
+    });
+};
 
 const unjoinPost = (req, res) => {
 
