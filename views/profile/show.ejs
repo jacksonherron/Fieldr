@@ -7,12 +7,12 @@
     </section>
 
     <section class="user-profile">
-        <h1><%= currentUser.firstName %> <%= currentUser.lastName %></h1>
-        <h2>Email:<%= currentUser.email %></h2>
-        <h2>User Since:<%= currentUser.sign_up_date %></h2>
+        <div><%= currentUser.firstName %> <%= currentUser.lastName %></div>
+        <div>Email:<%= currentUser.email %></div>
+        <div>User Since:<%= currentUser.sign_up_date %></div>
     </section>
 
-    <h1>Current Planned Activites</h1>
+    <div>Current Planned Activites</div>
     <section id="wall">
         <% if (posts) { %>
         <% for (let i = 0; i < posts.length; i++) { %>
@@ -28,12 +28,13 @@
                 </div>
                 <div class="location">at <%= posts[i].location %></div>
                 <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
+                <div class="joins">Joined By:<%= posts[i].joins.length %></div>
             </div>
             <form class="comment-form">
                 <input type="text" />
                 <div class="spacer-container">
-                    <button class="join-button" id="<%= posts[i]._id %>">Join</button>
                     <button class="comment-button" id="<%= posts[i]._id %>">Comment</button>
+                    <button class="join-button" id="<%= posts[i]._id %>">Join</button>
                 </div>
 
             </form>
