@@ -35,9 +35,9 @@ const showProfilePage = (req, res) => {
     if (req.session.currentUser) {
         const currentDate = new Date(Date.now());
         db.Post.find({
-            $and : [
+            $and: [
                 { date_time: { '$gte': currentDate } },
-                { $or : [ { joins: { $in: req.session.currentUser._id } }, { host: req.session.currentUser._id } ] }
+                { $or: [{ joins: { $in: req.session.currentUser._id } }, { host: req.session.currentUser._id }] }
             ]
         })
             .populate('host')
@@ -98,12 +98,6 @@ const createNewPost = (req, res) => {
 
 const joinPost = (req, res) => {
     db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-        if (foundUser.joins.includes(req.params.postId)) {
-            return res.status({
-                status: 400,
-                message: `Already joined`
-            })
-        }
         if (err) return res.JSON({ status: 400, error: err });
         // This block of code triggers if the user has already joined the post
         if (foundUser.joins.includes(req.params.postId)) {
@@ -115,8 +109,8 @@ const joinPost = (req, res) => {
                 foundPost.save();
                 res.redirect('/profile');
             });
-        } 
-        
+        }
+
         // This block of code triggers if the user has NOT already joined the post
         else {
             foundUser.joins.push(req.params.postId);
