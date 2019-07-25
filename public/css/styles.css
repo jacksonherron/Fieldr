@@ -334,11 +334,20 @@ button:hover{
 }
 /* Bottom footer styles */
 footer{
-   background-color: black;
-   height: 20vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: black;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    text-align: center;
+}
+
+footer .jackson{
+    display: inline;
 }
 footer a{
    color:whitesmoke;
