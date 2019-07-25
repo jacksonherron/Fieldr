@@ -16,7 +16,7 @@ const createUser = (req, res) => {
     }
 
     if (errors.length) {
-        return res.render('login', { errors })
+        return res.render('signup', { errors })
     }
 
     // Generate Hashed Password
