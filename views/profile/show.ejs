@@ -1,6 +1,7 @@
 <% include ../partials/_head.ejs %>
 <div class="home-page">
     <div class="hello">Hello <%= currentUser && currentUser.firstName %></div>
+    
     <section class="new-post-form-block">
         <button id="new-post-button">New Post</button>
     </section>
@@ -45,6 +46,49 @@
                         <span class="comment-author"><%=posts[i].comments[j].user.firstName %>
                             <%=posts[i].comments[j].user.lastName %></span>
                         <span class="comment-content"><%= posts[i].comments[j].content %></span>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        <% } %>
+    </section>
+
+    <section id="profileWall">
+        <% if (pastPosts) { %>
+        <div class="pastPostsHeading">Past Activities</div>
+        <% for (let i = 0; i < pastPosts.length; i++) { %>
+        <div class="post" id="<%= pastPosts[i]._id %>">
+            <div class="post-content">
+                <div class="post-header">
+                    <div class="sport-name"><%= pastPosts[i].sport %></div>
+                    <% if(currentUser._id.toString()===pastPosts[i].host._id.toString()) {%>
+                    <% include ../partials/_delete-button.ejs %>
+                    <%};%>
+                </div>
+                <div class="host-name">Hosted by <%= pastPosts[i].host.firstName %> <%= pastPosts[i].host.lastName %>
+                </div>
+                <div class="location">at <%= pastPosts[i].location %></div>
+                <div class="descr"><span class="descr-title">Description: </span><%= pastPosts[i].descr %></div>
+            </div>
+            <form class="comment-form">
+                <input type="text" />
+                <div class="spacer-container">
+                    <button class="comment-button" id="<%= pastPosts[i]._id %>">Comment</button>
+                </div>
+
+            </form>
+            <% if (pastPosts[i].comments.length) {%>
+            <div class="comments">
+                <div class="comments-title">Comments</div>
+                <% for(let j = 0; j < pastPosts[i].comments.length; j++) { %>
+                <div class="comment" id="<%= pastPosts[i].comments[j]._id %>">
+                    <div class="comment">
+                        <span class="comment-author"><%=pastPosts[i].comments[j].user.firstName %>
+                            <%=pastPosts[i].comments[j].user.lastName %></span>
+                        <span class="comment-content"><%= pastPosts[i].comments[j].content %></span>
                     </div>
                 </div>
                 <% } %>
