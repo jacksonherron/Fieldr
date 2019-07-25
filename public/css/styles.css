@@ -65,6 +65,11 @@ main{
    font-weight: bold;
 
 }
+
+.form-to-be-appended{
+position: relative;
+}
+
 input{
    border-color: var(--main-color);
    font-family: sans-serif;

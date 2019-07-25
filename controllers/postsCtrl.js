@@ -98,6 +98,12 @@ const createNewPost = (req, res) => {
 
 const joinPost = (req, res) => {
     db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        if (foundUser.joins.includes(req.params.postId)) {
+            return res.status({
+                status: 400,
+                message: `Already joined`
+            })
+        }
         if (err) return res.JSON({ status: 400, error: err });
         // This block of code triggers if the user has already joined the post
         if (foundUser.joins.includes(req.params.postId)) {
