@@ -4,12 +4,17 @@
    --yellow: #FCD92A;
    --black: #080708;
    --white: #FDFFFC;
-
+   --mainFont: 'Lato';
+   --titleFont: 'Passion One';
 }
 
 * {
-   font-family: sans-serif;
+   font-family: var(--mainFont);
    box-sizing: border-box;
+}
+
+*:focus{
+   outline: none;
 }
 
 /* Removes default margin and padding in browsers */
@@ -24,71 +29,122 @@ body {
 main{
    display: flex;
    justify-content: center;
+   padding-bottom: 10em;
+   padding-top: 3em;
+   background-color: var(--white);
 }
 
 /* Nav styles */
 nav {
-   background-color: var(--yellow);
    top: 0;
    display: flex;
    justify-content: space-between;
    align-items: flex-end;
    height: 4em;
+   position: relative;
+
+}
+nav::before {
+   content: '';
+   border: 5px solid var(--yellow);
+   width: 95vw;
+   bottom: -1em;
+   left: 5vw;
+   position: absolute;
+}
+nav::after {
+   content: '';
+   border: 5px solid var(--blue);
+   width: 95vw;
+   bottom: -2em;
+   right: 5vw;
+   position: absolute;
 }
 
-nav * {
-   font-family: 'Passion One', cursive;
+.pseudo-nav {
+   position: absolute;
+}
+
+.pseudo-nav::after {
+   content: '';
+   border: 5px solid var(--red);
+   bottom: -3em;
+   width: 80vw;
+   left: 20vw;
+   position: absolute;
 }
 
 nav .header * {
    font-size: 3em;
-   font-family: 'Passion One', cursive;
+   font-family: var(--titleFont);
    margin-left: 1em;
 }
-
+.user-links{
+   display: flex;
+   flex-direction: row;
+}
 nav a {
+   font-family: var(--titleFont);
    text-decoration: none;
    font-size: 2em;
    color: black;
    margin-right: 1em;
 }
-nav a:hover{
-   color:white;
+.nav-link:hover{
+   transform: scale(1.1);
 }
 
 /* Footer styles */
 footer {
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-end;
    align-items: center;
-   background-color: black;
-   height: 20vh;
+   background-color: var(--black);
+   height: 10em;
    text-align: center;
-   color: white;
+   color: var(--white);
    position: absolute;
    bottom: 0;
    right: 0;
    left: 0;
 }
 
-footer .jackson{
-   display: inline;
+.created-by {
+   font-size: 0.8em;
+   padding-bottom: 0.5em;
+   text-decoration: underline;
 }
+
+.footer-names {
+   font-size: 1.4em;
+   padding-bottom: 0.3em;
+}
+
+.footer-emails {
+   font-size: 0.8em;
+   padding-bottom: 0.8em;
+}
+
+.footer-date {
+   padding-top: 2em;
+   padding-bottom: 1em;
+   font-size: 0.5em;
+}
+
 footer a{
-  color:white;
-  padding:1em;
+  color: var(--white);
+  padding: 1em;
   text-decoration: none;
+  font-size: 1em;
 }
+
 footer a:hover{
-  color: var(--yellow)
+  color: var(--yellow);
 }
 
 
 /* Forms styling */
-.forms{
-   border: 1px solid black;
-}
 
 .forms * {
    display: block;
@@ -104,33 +160,34 @@ position: relative;
 }
 
 input{
-   border-color: var(--red);
-   font-family: sans-serif;
-   height: 2em;
+   border-color: 2px solid #dddddd;
+   background-color: var(--white);
+   border-radius: 5px;
    width: 20em;
    font-size: 1em;
 }
 
-.description-container p {
-   font-size: 2em;
-   width: 60vw;
-   line-height: 1.7em;
-}
-.description-container .button-container{
-   display: flex;
-   justify-content: flex-end;
-}
+
+
 button{
-   background-color: var(--yellow);
-   height:2.5em;
-   padding: 0 1em;
-   font-size: 1em;
-   color:white;
-   margin:1em;
-   border-radius: 1em;
-}
-button:hover{
+   color: var(--blue)!important;
+   background: none;
+   border: 4px solid var(--blue);
    font-weight: bold;
+   color: var(--blue);
+   border-radius: 50px;
+   font-size: 1em;
+   color: black;
+   padding: 1em;
+}
+
+.home-button-container button{
+   margin: 20px;
+}
+
+button:hover{
+   color: var(--yellow)!important;
+   border: 4px solid var(--yellow);
    cursor: pointer;
 }
 
@@ -138,6 +195,42 @@ button:hover{
    display: flex;
    justify-content: space-between;
 }
+
+/* HOME PAGE */
+
+.description-container {
+   width: 80vw;
+   min-width: 500px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 3em;
+}
+
+.home-title {
+   font-size: 8em;
+   font-family: var(--titleFont);
+}
+
+.home-description {
+   font-size: 2em;
+   text-align: center;
+   margin: 0 2em;
+}
+
+.home-tagline {
+   margin-top: .5em;
+   font-size: 2em;
+   font-family: var(--titleFont);
+}
+
+.home-button-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
 
 
 /* POSTS Styling */
@@ -248,12 +341,10 @@ button:hover{
 form * {
    display: block;
 }
-.form label{
-   font-size: 1.5em;
-}
 
 input{
-   border-color: var(--red);
+   margin: 5px;
+   border: 
    font-family: sans-serif;
    font-size: 1.5em;
    height:7vh;
@@ -262,16 +353,6 @@ input{
 
 input:focus {
    outline: none;
-}
-
-.description-container p {
-   font-size: 2em;
-   width: 60vw;
-   line-height: 1.7em;
-}
-.description-container .button-container{
-   display: flex;
-   justify-content: flex-end;
 }
 
 /* Users Wall */
