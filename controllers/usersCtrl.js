@@ -16,7 +16,7 @@ const createUser = (req, res) => {
     }
 
     if (errors.length) {
-        return res.render('login', { errors })
+        return res.render('signup', { errors })
     }
 
     // Generate Hashed Password
@@ -28,7 +28,7 @@ const createUser = (req, res) => {
             req.body.password = hash;
 
             db.User.create(req.body, (error, createdUser) => {
-                if (error) return console.log(error);
+                if (error) return res.render('signup', { errors: [{ message: 'Something went wrong. Try again' }] });
                 res.redirect('/login');
             })
         })
@@ -67,7 +67,7 @@ const createSession = (req, res) => {
             if (!match) return res.render(`login`, { errors: [{ message: `Invalid username and/or password` }] });
 
             if (match) {
-                req.session.currentUser = { _id: foundUser._id, firstName: foundUser.firstName, email: foundUser.email }
+                req.session.currentUser = { _id: foundUser._id, firstName: foundUser.firstName, lastName: foundUser.lastName, email: foundUser.email, sign_up_date: foundUser.sign_up_date.toString() };
                 return res.redirect(`/home`);
             }
         })
