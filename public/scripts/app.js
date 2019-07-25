@@ -60,7 +60,7 @@ const appendForm = container => {
     <div class="form-to-be-appended" id="form-to-be-appended">
             <div class="form-title">New Post</div>
             <div class="delete-button" id="postToggle">&#10060</div>
-            <form id="new-post-form" method="POST" action="/home">
+            <form id="new-post-form" method="POST">
                 <div class="form-group">
                     <label for="sport">Sport</label>
                     <input type="text" id="sportInput" name="sport" />
@@ -77,7 +77,7 @@ const appendForm = container => {
                     <label for="descr">Description</label>
                     <input type="text" id="descrInput" name="descr" />
                 </div>
-                <input type="submit" id="submit-btn" value="Submit" />
+                <input type="submit" class="submit-post" id="submit-btn" value="Submit" />
             </form>
         </div>
     `
