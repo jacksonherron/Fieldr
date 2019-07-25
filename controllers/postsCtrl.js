@@ -22,10 +22,16 @@ const showHomePage = (req, res) => {
     } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
 };
 
+
 const showProfilePage = (req, res) => {
     if (req.session.currentUser) {
         const currentDate = new Date(Date.now());
-        db.Post.find({ date_time: { '$gte': currentDate } })
+        db.Post.find({
+            $and : [
+                { date_time: { '$gte': currentDate } },
+                { $or : [ { joins: { $in: req.session.currentUser._id } }, { host: req.session.currentUser._id } ] }
+            ]
+        })
             .populate('host')
             .populate({
                 path: 'comments',
@@ -36,8 +42,9 @@ const showProfilePage = (req, res) => {
                 }
             })
             .exec((err, foundPosts) => {
+                console.log('foundPosts: ', foundPosts);
                 if (err) return res.render('home/show.ejs', { currentUser: req.session.currentUser });
-                res.render('home/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
+                res.render('profile/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
             })
 
     } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
