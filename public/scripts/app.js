@@ -60,7 +60,7 @@ const appendForm = container => {
     <div class="form-to-be-appended" id="form-to-be-appended">
             <div class="form-title">New Post</div>
             <div class="delete-button" id="postToggle">&#10060</div>
-            <form id="new-post-form" method="POST" action="/home">
+            <form id="new-post-form" method="POST">
                 <div class="form-group">
                     <label for="sport">Sport</label>
                     <input type="text" id="sportInput" name="sport" />
@@ -77,7 +77,7 @@ const appendForm = container => {
                     <label for="descr">Description</label>
                     <input type="text" id="descrInput" name="descr" />
                 </div>
-                <input type="submit" id="submit-btn" value="Submit" />
+                <input type="submit" class="submit-post" id="submit-btn" value="Submit" />
             </form>
         </div>
     `
@@ -120,6 +120,25 @@ main.addEventListener('click', event => {
         console.log(event);
     }
 }, false);
+
+const isoDate = '2019-07-24T16:45:27.380Z';
+const getDateFromIso = isoDate => {
+
+    const splitDate = isoDate.split('-')
+    const months = { 01: "January", 02: "February", 03: "March", 04: "April", 05: "May", 06: "June", 07: "July", 08: "August", 09: "September", 10: "October", 11: "November", 12: "December" };
+    const year = splitDate[0];
+    const monthNum = parseInt(splitDate[1]);
+    const dayArray = []
+    for (let i = 0; i <= 1; i++) {
+        dayArray.push(splitDate[2][i]);
+    }
+    const day = dayArray.join('');
+    const startDate = `${months[monthNum]},${day},${year}`;
+    return startDate
+}
+
+console.log(getDateFromIso(isoDate));
+
 
 
 
