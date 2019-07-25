@@ -28,7 +28,7 @@ const createUser = (req, res) => {
             req.body.password = hash;
 
             db.User.create(req.body, (error, createdUser) => {
-                if (error) return console.log(error);
+                if (error) return res.render('signup', { errors: [{ message: 'Something went wrong. Try again' }] });
                 res.redirect('/login');
             })
         })
