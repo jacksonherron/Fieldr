@@ -2,25 +2,16 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
-// Get all connected posts and render profile page
+// Render profile page
 router.get('/', ctrl.postsCtrl.showProfilePage);
-
 // Create new post
 router.post('/', ctrl.postsCtrl.createNewPost);
-
 // Create new comment
 router.post('/:postId/', ctrl.commentsCtrl.createNewComment);
-
-// Join
+// Join/unjoin post
 router.put('/:postId/', ctrl.postsCtrl.joinPost)
-
-// Unjoin
-router.put('/:postId/', ctrl.postsCtrl.unjoinPost)
-
 // Delete post
 router.delete('/:postId/', ctrl.postsCtrl.deletePost)
 
-// Delete comment
-router.delete('/:postId/commentId/', ctrl.commentsCtrl.deleteComment)
 
 module.exports = router;
