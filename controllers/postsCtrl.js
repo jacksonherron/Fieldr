@@ -51,8 +51,26 @@ const showProfilePage = (req, res) => {
             })
             .exec((err, foundPosts) => {
                 if (err) return res.render('home/show.ejs', { currentUser: req.session.currentUser });
-                res.render('profile/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
-            })
+                db.Post.find({
+                    $and : [
+                        { date_time: { '$lte': currentDate } },
+                        { $or : [ { joins: { $in: req.session.currentUser._id } }, { host: req.session.currentUser._id } ] }
+                    ]
+                })
+                    .populate('host')
+                    .populate({
+                        path: 'comments',
+                        model: 'Comment',
+                        populate: {
+                            path: 'user',
+                            model: 'User',
+                        }
+                    })
+                    .exec((err, pastPosts) => {
+                        if (err) return res.render('home/show.ejs', { currentUser: req.session.currentUser });
+                        res.render('profile/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts, pastPosts });
+                });
+            });
 
     } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
 };
@@ -98,13 +116,6 @@ const createNewPost = (req, res) => {
 
 const joinPost = (req, res) => {
     db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-        if (foundUser.joins.includes(req.params.postId)) {
-            return res.status({
-                status: 400,
-                message: `Already joined`
-            })
-        }
-        if (err) return res.JSON({ status: 400, error: err });
         // This block of code triggers if the user has already joined the post
         if (foundUser.joins.includes(req.params.postId)) {
             foundUser.joins.pull(req.params.postId);
