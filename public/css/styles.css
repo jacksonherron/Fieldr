@@ -297,13 +297,13 @@ button:hover{
    margin: 20px;
    border: 4px solid var(--white);
    background-color: var(--white);
-   color: var(--lightBlack);
+   color: var(--black);
 }
 
 .post button:hover{
    cursor: pointer;
    background-color: var(--white);
-   color: var(--yellow);
+   color: var(--red);
 }
 
 .forms button {
