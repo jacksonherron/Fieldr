@@ -19,9 +19,9 @@ We know what you're thinking "what if I don't want to go on another dog search s
 
 3. On your home page, you can see other people's posts and join or comment at your leisure.
 
-3.1 You can post about your own outings as well.
+4. Post about your own outings as well!
 
-4. On your profile page you can find all of the events you are connected to, and view past events as well.
+5. On your profile page you can find all of the events you are connected to, and view past events as well.
 
 And that's Fieldr. A web app designed to find friends to be physical with. And if you want to date them we won't stop you.
 
