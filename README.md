@@ -1,8 +1,6 @@
 <h1>Fieldr</h1>
 <h3>Find Your Field</h3>
 
-<h2 style="color: red;" >Fieldr</h2>
-
 <h2>What Is This?</h2>
 This is a full-stack web app built over four days by Jackson Herron and Eduardo Franco for Project 1 at General Assmemly's Software Engineering Immersive course. This project is written in Javascript, HTML, and CSS. The backend runs in Node.js with Express, Mongoose, and MongoDB. The front-end is built with EJS and custom CSS - no front end frameworks were used.
 
