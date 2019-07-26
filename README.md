@@ -16,7 +16,9 @@ Every product is a solution to a problem. Jackson and Eduardo wondered to themse
 <h2>What This Does</h2>
 Fieldr is a web application that helps you find friends to play sports with! You can post about sports events you are hosting, or find posts of people in your area looking to get a game together. You can comment on people's posts to let them know you're going to be there. You can cement your commitment by clicking join. Of course we are all flakes so you can unjoin an outing as well.
 
-We know what you're thinking "what if I don't want to go on another dog search souling microbrew hike" well you can make your own posts and also delete them! Also breathe easy, because your account is secured using bcrypt password hashing, so you know your privacy is safe with Fieldr - that is until quantum computing takes over.
+We know what you're thinking "what if I don't want to go on another dog search souling microbrew hike" well you can make your own posts and also delete them!
+
+Also breathe easy, because your account is secured using bcrypt password hashing, so you know your privacy is safe with Fieldr - that is until quantum computing steamrolls our authentication.
 
 <h2>Home Page</h2>
 
