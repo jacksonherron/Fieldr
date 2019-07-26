@@ -19,7 +19,7 @@ We know what you're thinking "what if I don't want to go on another dog search s
 
 ![Home Page](./images/home-page.png)
 
-![Profile Page](./images/prfile-page.png)
+![Profile Page](./images/profile-page.png)
 
 <h2>User Story</h2>
 
