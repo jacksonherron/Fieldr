@@ -5,19 +5,21 @@
    --black: #080708;
    --white: #FDFFFC;
    --mainFont: 'Lato';
-   --titleFont: 'Passion One';
+   --titleFont: 'Fascinate';
+   --otherFont: 'Passion One';
 }
 
 * {
    font-family: var(--mainFont);
    box-sizing: border-box;
+   color: var(--black);
 }
 
 *:focus{
    outline: none;
 }
 
-/* Removes default margin and padding in browsers */
+/* BODY AND MAIN */
 body {
    margin: 0;
    padding: 0;
@@ -29,12 +31,25 @@ body {
 main{
    display: flex;
    justify-content: center;
-   padding-bottom: 10em;
+   align-items: center;
+   padding-bottom: 12em;
    padding-top: 3em;
    background-color: var(--white);
 }
 
-/* Nav styles */
+/* ALERT MESSAGES */
+.alert {
+   position: relative;
+   top: 3.5em;
+}
+
+.alert * {
+   font-weight: bold;
+   color: var(--red);
+   text-align: center;
+}
+
+/* NAV */
 nav {
    top: 0;
    display: flex;
@@ -47,14 +62,16 @@ nav {
 nav::before {
    content: '';
    border: 5px solid var(--yellow);
-   width: 95vw;
+   border-radius: 10px;
+   width: 97vw;
    bottom: -1em;
-   left: 5vw;
+   left: 3vw;
    position: absolute;
 }
 nav::after {
    content: '';
    border: 5px solid var(--blue);
+   border-radius: 10px;
    width: 95vw;
    bottom: -2em;
    right: 5vw;
@@ -68,6 +85,7 @@ nav::after {
 .pseudo-nav::after {
    content: '';
    border: 5px solid var(--red);
+   border-radius: 10px;
    bottom: -3em;
    width: 80vw;
    left: 20vw;
@@ -90,69 +108,84 @@ nav a {
    color: black;
    margin-right: 1em;
 }
-.nav-link:hover{
-   transform: scale(1.1);
+
+nav a:hover{
+   color: var(--yellow);
 }
 
-/* Footer styles */
+nav .header a:hover{
+   color: var(--blue);
+}
+
+
+
+/* FOOTER */
 footer {
    display: flex;
    flex-direction: column;
    justify-content: flex-end;
    align-items: center;
    background-color: var(--black);
-   height: 10em;
+   height: 12em;
    text-align: center;
-   color: var(--white);
    position: absolute;
    bottom: 0;
    right: 0;
    left: 0;
 }
 
+footer * {
+   color: var(--white);
+}
+
 .created-by {
-   font-size: 0.8em;
-   padding-bottom: 0.5em;
-   text-decoration: underline;
+   font-size: 0.7em;
+   padding-bottom: 0.2em;
 }
 
 .footer-names {
+   font-family: var(--titleFont);
    font-size: 1.4em;
    padding-bottom: 0.3em;
 }
 
 .footer-emails {
-   font-size: 0.8em;
-   padding-bottom: 0.8em;
+   font-size: 1em;
+   padding-top: 0.4em;
 }
 
 .footer-date {
-   padding-top: 2em;
-   padding-bottom: 1em;
+   padding-top: 1em;
+   padding-bottom: 2.5em;
    font-size: 0.5em;
 }
 
+
 footer a{
   color: var(--white);
-  padding: 1em;
+  padding: 0.2em;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 2em;
 }
 
-footer a:hover{
-  color: var(--yellow);
+footer .fab:hover{
+  color: var(--red);
 }
 
-
-/* Forms styling */
-
-.forms * {
+/* FORMS */
+form * {
    display: block;
+}
+
+.login, .signup {
+   margin: 1.5em;
 }
 
 .form-title {
    font-weight: bold;
-
+   font-family: var(--titleFont);
+   text-align: center;
+   font-size: 2em;
 }
 
 .form-to-be-appended{
@@ -165,30 +198,61 @@ input{
    border-radius: 5px;
    width: 20em;
    font-size: 1em;
+   height: 2em;
+   margin: 5px 0;
 }
 
+input:focus {
+   outline: none;
+}
 
-
-button{
-   color: var(--blue)!important;
+button {
+   color: var(--white)!important;
    background: none;
    border: 4px solid var(--blue);
+   background-color: var(--blue);
    font-weight: bold;
    color: var(--blue);
    border-radius: 50px;
    font-size: 1em;
    color: black;
-   padding: 1em;
+   padding: 0.8em;
+   font-family: var(--titleFont);
+}
+
+button:hover{
+   background-color: var(--white);
+   color: var(--blue)!important;
+   cursor: pointer;
 }
 
 .home-button-container button{
    margin: 20px;
+   border: 4px solid var(--red);
+   background-color: var(--red);
 }
 
-button:hover{
-   color: var(--yellow)!important;
-   border: 4px solid var(--yellow);
+.home-button-container button:hover{
+   background-color: var(--white);
+   color: var(--red)!important;
    cursor: pointer;
+}
+
+.post button{
+   margin: 20px;
+   border: 4px solid var(--black);
+   background-color: var(--black);
+}
+
+.post button:hover{
+   background-color: var(--white);
+   color: var(--black)!important;
+   cursor: pointer;
+}
+
+.forms button {
+   margin: 2em auto 1em;
+   font-family: var(--titleFont);
 }
 
 .inputs{
@@ -196,7 +260,7 @@ button:hover{
    justify-content: space-between;
 }
 
-/* HOME PAGE */
+/* INDEX PAGE */
 
 .description-container {
    width: 80vw;
@@ -205,7 +269,7 @@ button:hover{
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   margin-top: 3em;
+   margin-top: 2em;
 }
 
 .home-title {
@@ -231,32 +295,158 @@ button:hover{
    justify-content: center;
 }
 
+.home-button-container * {
+   font-family: var(--titleFont);
+}
+
+/* HOME AND PROFILE PAGE */
 
 
-/* POSTS Styling */
-#wall {
+.wall {
+   margin-top: 1em;
+   width: 100vw;
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   align-items: flex-start;
+   align-content: flex-start;
+   align-items: center;
 }
 
+.home-button-container * {
+   font-family: var(--titleFont);
+}
+
+.submit-btn-container{
+   display: flex;
+   justify-content: center;
+}
+
+.submit-btn{
+   color: var(--white)!important;
+   background: none;
+   border: 4px solid var(--blue);
+   background: var(--blue);
+   font-weight: bold;
+   color: var(--blue);
+   border-radius: 50px;
+   font-size: 1em;
+   color: black;
+   padding: 0.8em;
+   font-family: var(--titleFont);
+   width: auto;
+   height: auto;
+}
+
+.submit-btn:hover{
+   background-color: var(--white);
+   color: var(--blue)!important;
+   cursor: pointer;
+}
+
+.intro-container {
+   margin-top: 1em;
+   display: flex;
+   flex-direction: row;
+   position: relative;
+}
+
+.intro-container::after{
+   content: '';
+   border: 5px solid var(--black);
+   border-radius: 10px;
+   width: 95vw;
+   bottom: -2em;
+   right: 2.5vw;
+   position: absolute;
+}
+
+.profile-container {
+   width: 50vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.new-post-container {
+   width: 50vw;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+}
+
+.new-post-container::before {
+   content: '';
+   border: 5px solid var(--black);
+   border-radius: 10px;
+   bottom: -2em;
+   top: -0.5em;
+   left: 0;
+   position: absolute;
+}
+
+.past-events {
+   position: relative;
+   color: var(--yellow)!important;
+}
+
+.past-events::before {
+   content: '';
+   border: 5px solid var(--black);
+   border-radius: 10px;
+   width: 95vw;
+   top: -.5em;
+   right: 2.5vw;
+   position: absolute;
+}
+
+.hello {
+   font-size: 3em;
+   font-family: var(--titleFont);
+   margin-left: .5em;
+   color: var(--blue);
+}
+
+.profile-info{
+   margin-left: 2em;
+}
+
+.profile-info-bold {
+   font-family: var(--titleFont);
+}
+
+.wall-title {
+   margin-top: 1em;
+   margin-bottom: 0.25em;
+   font-size: 2em;
+   text-align: center;
+   font-family: var(--titleFont);
+   color: var(--red);
+}
+
+
+/* POSTS*/
+
 .post {
-   border: 1px solid black;
-   margin: 1em;
-   max-width: 16em;
+   border: 5px solid var(--yellow);
+   border-radius: 40px;
+   width: 18em;
+   padding: 1em;
+   margin-bottom: 2em;
+   margin: 0 1em 2em;
 }
 
 .post-header {
    position: relative;
 }
 
-.post-header .sport-name{
+.sport-name{
    font-size: 1.8em;
    font-weight: bold;
-   margin-bottom: 0.3em;
-   max-width: 12em;
-   padding: 0.2em;
+   text-align: center;
+   font-family: var(--titleFont);
+   padding: 0 1em;
 }
 
 .post .host-name, .location{
@@ -277,24 +467,38 @@ button:hover{
    position: absolute;
    top: 0;
    right: 0;
-   width: 1em;
-   padding-right:1.5em;
-   padding-top: 0.5em;
+   font-size: 1.3em;
 }
 
 .delete-button:hover{
    cursor: pointer;
 }
 
+.delete-button:hover{
+   transform: scale(1.3);
+}
+
 .comments {
-   border: 1px solid black;
    font-size: 0.8em;
+   margin-top: 2em;
+   position: relative;
+}
+
+.comments::before{
+   content: '';
+   border: 2px solid var(--black);
+   border-radius: 10px;
+   width: 19em;
+   top: -1em;
+   position: absolute;
 }
 
 .comment-form input {
    font-size: 1em;
    width: 100%;
 }
+
+.commentform 
 
 .spacer-container{
    display: flex;
@@ -303,90 +507,14 @@ button:hover{
 
 .comments-title {
    font-weight: bold;
-}
-/* Users Wall */
-.wall{
-   display: flex;
-   flex-direction: column;
-}
-.card{
-   height:50vh;
-   width: 60vh;
-   /* overflow: hidden; */
-}
-.card .sport{
-   font-size: 2em;
-}
-.card .descr{
-   height: 100%;
-   padding-left: .5em;
-   padding-top:.2em;
-   border: 1px solid black;
-}
-.card .descr h1{
-   margin:0;
-}
-/* Comments style */
-.comments-user{
-   margin: 0;
-}
-.comment-field{
-   width: 60vh;
-}
-.inputs{
-   display: flex;
-   justify-content: space-between;
+   text-align: center;
 }
 
-form * {
-   display: block;
+.comment-author {
+   font-family: var(--titleFont);
 }
 
-input{
-   margin: 5px;
-   border: 
-   font-family: sans-serif;
-   font-size: 1.5em;
-   height:7vh;
-   width:50vh;
-}
-
-input:focus {
-   outline: none;
-}
-
-/* Users Wall */
-.wall{
+.comment-form .spacer-container {
    display: flex;
-   flex-direction: column;
-}
-.card{
-   height:50vh;
-   width: 60vh;
-   /* overflow: hidden; */
-}
-.card .sport{
-   font-size: 2em;
-   background-color: whitesmoke;
-}
-.card .descr{
-   height: 100%;
-   padding-left: .5em;
-   padding-top:.2em;
-   border: 1px solid black;
-   background-color: antiquewhite;
-}
-.card .descr h1{
-   margin:0;
-}
-/* Comments style */
-.comments-user{
-   margin: 0;
-}
-.comment-field{
-   width: 60vh;
-}
-.inputs{
-   display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
 }

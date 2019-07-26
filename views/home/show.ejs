@@ -16,13 +16,18 @@
 <% } %>
 
 <div class="home-page">
-    <div class="hello">Hello <%= currentUser && currentUser.firstName %></div>
-
-    <section class="new-post-form-block">
-        <button id="new-post-button">New Post</button>
-    </section>
-
-    <section id="wall">
+    <div class="intro-container">
+        <div class="profile-container">
+            <div class="hello">Hello <%= currentUser && currentUser.firstName %></div>
+        </div>
+        <div class="new-post-container">
+            <section class="new-post-form-block">
+                <button id="new-post-button">New Post</button>
+            </section>
+        </div>
+    </div>
+    <div class="wall-title">Events Near You</div>
+    <section class="wall">
         <% if (posts) { %>
         <% for (let i = 0; i < posts.length; i++) { %>
         <div class="post" id="<%= posts[i]._id %>">
@@ -38,7 +43,7 @@
                 </div>
                 <div class="location">at <%= posts[i].location %></div>
                 <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
-                <div class="joins">Joined By:<%= posts[i].joins.length %></div>
+                <div class="joins">Joined By: <%= posts[i].joins.length %></div>
             </div>
             <form class="comment-form">
                 <input type="text" />

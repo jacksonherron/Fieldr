@@ -8,11 +8,11 @@ const newUser = (req, res) => {
 const createUser = (req, res) => {
     const errors = [];
     if (!req.body.email) {
-        errors.push({ field: 'email', message: 'Did not enter a valid email' });
+        errors.push({ field: 'email', message: 'Please enter a valid email' });
     }
 
     if (!req.body.password) {
-        errors.push({ field: 'password', message: 'Did not enter a valid password' })
+        errors.push({ field: 'password', message: 'Please enter a valid password' })
     }
 
     if (errors.length) {
@@ -21,14 +21,14 @@ const createUser = (req, res) => {
 
     // Generate Hashed Password
     bcrypt.genSalt(10, (error, salt) => {
-        if (error) return res.render(`signup`, { errors: [{ message: 'Something went wrong. Try Again' }] })
+        if (error) return res.render(`signup`, { errors: [{ message: 'Something went wrong, please try again' }] })
 
         bcrypt.hash(req.body.password, salt, (error, hash) => {
-            if (error) return res.render('signup', { errors: [{ message: 'Something went wrong. Try again' }] });
+            if (error) return res.render('signup', { errors: [{ message: 'Something went wrong, please try again' }] });
             req.body.password = hash;
 
             db.User.create(req.body, (error, createdUser) => {
-                if (error) return res.render('signup', { errors: [{ message: 'Something went wrong. Try again' }] });
+                if (error) return res.render('signup', { errors: [{ message: 'Something went wrong, please try again' }] });
                 res.redirect('/login');
             })
         })
@@ -59,11 +59,11 @@ const createSession = (req, res) => {
         return res.render(`login`, { errors })
     }
     db.User.findOne({ email: req.body.email }, (error, foundUser) => {
-        if (error) return res.render(`login`, { errors: [{ message: `Something went wrong. Try again` }] });
+        if (error) return res.render(`login`, { errors: [{ message: `Something went wrong, please try again` }] });
         if (!foundUser) return res.render(`login`, { errors: [{ message: `Invalid username and/or password` }] });
 
         bcrypt.compare(req.body.password, foundUser.password, (error, match) => {
-            if (error) return res.render(`login`, { errors: [{ message: `Something went wrong` }] });
+            if (error) return res.render(`login`, { errors: [{ message: `Something went wrong, please try again` }] });
             if (!match) return res.render(`login`, { errors: [{ message: `Invalid username and/or password` }] });
 
             if (match) {
@@ -77,7 +77,7 @@ const createSession = (req, res) => {
 
 const deleteSession = (req, res) => {
     req.session.destroy(error => {
-        if (error) return (res.render(`/home`), { error: [{ message: `Something went wrong. Try again` }] });
+        if (error) return (res.render(`/home`), { error: [{ message: `Something went wrong, please try again` }] });
         res.redirect(`/`);
     })
 }

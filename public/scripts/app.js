@@ -59,7 +59,7 @@ const appendForm = event => {
     if (event.target.classList.contains('button-on')) {
         event.target.innerHTML = `New Post`;
         event.target.classList.remove(`button-on`);
-        event.target.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.childNodes[5])
+        event.target.parentNode.parentNode.removeChild(event.target.parentNode.parentNode.childNodes[3])
     } else {
         event.target.innerHTML = `Cancel`;
         event.target.classList.add(`button-on`)
@@ -84,7 +84,9 @@ const appendForm = event => {
                         <label for="descr">Description</label>
                         <input type="text" id="descrInput" name="descr" />
                     </div>
-                    <input type="submit" id="submit-btn" value="Submit" />
+                    <div class="submit-btn-container">
+                    <input type="submit" class="submit-btn" value="Submit" />
+                    </div>
                 </form>
             </div>
         `;

@@ -27,7 +27,7 @@ const showHomePage = (req, res) => {
                 res.render('home/show.ejs', { currentUser: req.session.currentUser, posts: foundPosts });
             })
 
-    } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
+    } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again' }] });
 };
 
 
@@ -72,24 +72,26 @@ const showProfilePage = (req, res) => {
                 });
             });
 
-    } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again.' }] });
+    } else res.render('login', { errors: [{ message: 'Something went wrong please, please log in and try again' }] });
 };
 
 const createNewPost = (req, res) => {
+    let originalUrl = req.originalUrl.toString();
+    originalUrl = originalUrl.replace(/\//g,'');
     if (req.session.currentUser) {
         let errors = [];
         if (!req.body.sport) {
-            errors.push({ field: 'sport', message: 'Must define a sport you want to play.' });
+            errors.push({ field: 'sport', message: 'You must specify a sport' });
         }
         if (!req.body.date_time) {
-            errors.push({ field: 'date_time', message: 'Must specify a date and time.' });
+            errors.push({ field: 'date_time', message: 'You must specify a date and time using ISO format' });
         }
         if (!req.body.location) {
-            errors.push({ field: 'location', message: 'Must specify a location.' });
+            errors.push({ field: 'location', message: 'Must specify a location' });
         }
-        if (errors.length) return res.render(req.originalUrl, { currentUser: req.session.currentUser, errors });
+        if (errors.length) return res.render(`${originalUrl}/show.ejs`, { posts: undefined, currentUser: req.session.currentUser, errors });
         db.User.findById(req.session.currentUser._id, (error, foundUser) => {
-            if (error) return res.render(req.originalUrl, { currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again' }] });
+            if (error) return res.render(`${originalUrl}/show.ejs`, { posts: undefined, currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again' }] });
             db.Post.create({
                 sport: req.body.sport,
                 date_time: req.body.date_time,
@@ -99,7 +101,7 @@ const createNewPost = (req, res) => {
             },
                 (error, createdPost) => {
 
-                    if (error) return res.render(req.originalUrl, { currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again.' }] });
+                    if (error) return res.render(`${originalUrl}/show.ejs`, { posts: undefined, currentUser: req.session.currentUser, errors: [{ message: 'Something went wrong, please try again.' }] });
                     foundUser.posts.push(createdPost._id);
                     return res.redirect(req.originalUrl);
                 });

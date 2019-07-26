@@ -1,19 +1,19 @@
 <% include ./partials/_head.ejs %>
-<section class="forms register">
-    <h1>Register</h1>
+<section class="forms signup">
+    <div class="form-title">Sign Up</div>
     <form action="/signup" method="POST">
         <label for="firstName">First Name</label>
-        <input name="firstName" id="firstName" type="text" autofocus autocomplete="off">
+        <input name="firstName" id="firstName" type="text" autofocus autocomplete="off" />
         <label for="lastName">Last Name</label>
-        <input name="lastName" id="lastName" type="text" autocomplete="off">
+        <input name="lastName" id="lastName" type="text" autocomplete="off" />
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="athlete@email.com" autocomplete="off">
+        <input type="email" id="email" name="email" />
         <label for="phone-number">Phone Number</label>
-        <input type="number" id="number" name="phoneNum" autocomplete="off">
+        <input type="number" id="number" name="phoneNum" autocomplete="off" />
         <label for="password">Password</label>
-        <input name="password" id="password" type="password" autocomplete="off">
+        <input name="password" id="password" type="password" autocomplete="off" />
         <label for="">Confirm Password</label>
-        <input name="password2" id="password2" type="password" autocomplete="off">
+        <input name="password2" id="password2" type="password" autocomplete="off" />
         <button type="submit">Sign Up</button>
     </form>
 </section>
