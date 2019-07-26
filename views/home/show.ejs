@@ -39,8 +39,7 @@
                     <div class="post-date"><%= months[posts[i].date_time.getMonth()] %> <%= posts[i].date_time.getDate() %>, <%= posts[i].date_time.getFullYear() %> at <%= convertTime(posts[i].date_time.getHours(), posts[i].date_time.getMinutes()) %></div>
                     <div class="location">Where: <%= posts[i].location %></div>
                 </div>
-                <div class="host-name">Host: <%= posts[i].host.firstName %> <%= posts[i].host.lastName %>
-                </div>
+                <div class="host-name">Host: <%= posts[i].host.firstName %> <%= posts[i].host.lastName %></div>
                 <div class="joins">Joins: <%= posts[i].joins.length %></div>
                 <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
             </div>

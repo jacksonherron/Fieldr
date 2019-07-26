@@ -90,8 +90,7 @@
                         <div class="post-date"><%= months[pastPosts[i].date_time.getMonth()] %> <%= pastPosts[i].date_time.getDate() %>, <%= pastPosts[i].date_time.getFullYear() %> at <%= convertTime(pastPosts[i].date_time.getHours(), pastPosts[i].date_time.getMinutes()) %></div>
                         <div class="location">Where: <%= pastPosts[i].location %></div>
                     </div>
-                    <div class="host-name">Host: <%= pastPosts[i].host.firstName %> <%= pastPosts[i].host.lastName %>
-                    </div>
+                    <div class="host-name">Host: <%= pastPosts[i].host.firstName %> <%= pastPosts[i].host.lastName %></div>
                     <div class="joins">Joins: <%= posts[i].joins.length %></div>
                     <div class="descr"><span class="descr-title">Description: </span><%= pastPosts[i].descr %></div>
                 </div>
