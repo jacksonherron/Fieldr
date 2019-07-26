@@ -1,6 +1,8 @@
 <h1>Fieldr</h1>
 <h3>Find Your Field</h3>
 
+[Index Page](./images/index-page.jpg)
+
 <h2>Heroku Deployment</h2>
 https://fieldr-app.herokuapp.com/
 
