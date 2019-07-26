@@ -2,7 +2,7 @@
 <h3>Find Your Field</h3>
 
 <h2>What Is This?</h2>
-This is a full-stack web app built over four days by Jackson Herron and Eduardo Franco for Project 1 at General Assmemly's Software Engineering Immersive course. This project is written in Javascript, HTML, and CSS. The backend runs in Node.js with Express, Mongoose, and MongoDB. The front-end is built with EJS and custom CSS - no front end frameworks were used.
+This is a full-stack web app built over four days by Jackson Herron and Eduardo Franco at General Assembly's Software Engineering Immersive. This project is written in JavaScript, HTML, and CSS. The backend runs on Node.js with Express, Mongoose, and MongoDB. The front-end is built with EJS, Vanilla Javascript, and custom CSS - no front end frameworks are used.
 
 Every product is a solution to a problem. Jackson and Eduardo wondered to themselves, what problem does every person have that can be easily solved by a website? That's how Fieldr was born! 
 
