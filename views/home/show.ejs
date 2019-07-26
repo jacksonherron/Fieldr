@@ -1,7 +1,6 @@
 <% include ../partials/_head.ejs %>
 
 <% const months = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
-<% const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] %>
 <% const convertTime = (hour, minute) => { %>
     <% if (minute < 10) { %>
         <% minute = '0' + minute %>
@@ -26,7 +25,7 @@
             </section>
         </div>
     </div>
-    <div class="wall-title">Events Near You</div>
+    <div class="wall-title">Games Near You</div>
     <section class="wall">
         <% if (posts) { %>
         <% for (let i = 0; i < posts.length; i++) { %>
@@ -37,13 +36,13 @@
                     <% if(currentUser._id.toString()===posts[i].host._id.toString()) {%>
                     <% include ../partials/_delete-button.ejs %>
                     <%};%>
-                    <div class="post-date"><%= days[posts[i].date_time.getDay()] %> <%= months[posts[i].date_time.getMonth()] %> <%= posts[i].date_time.getDate() %>, <%= posts[i].date_time.getFullYear() %> at <%= convertTime(posts[i].date_time.getHours(), posts[i].date_time.getMinutes()) %></div>
+                    <div class="post-date"><%= months[posts[i].date_time.getMonth()] %> <%= posts[i].date_time.getDate() %>, <%= posts[i].date_time.getFullYear() %> at <%= convertTime(posts[i].date_time.getHours(), posts[i].date_time.getMinutes()) %></div>
+                    <div class="location">Where: <%= posts[i].location %></div>
                 </div>
-                <div class="host-name">Hosted by <%= posts[i].host.firstName %> <%= posts[i].host.lastName %>
+                <div class="host-name">Host: <%= posts[i].host.firstName %> <%= posts[i].host.lastName %>
                 </div>
-                <div class="location">at <%= posts[i].location %></div>
+                <div class="joins">Joins: <%= posts[i].joins.length %></div>
                 <div class="descr"><span class="descr-title">Description: </span><%= posts[i].descr %></div>
-                <div class="joins">Joined By: <%= posts[i].joins.length %></div>
             </div>
             <form class="comment-form">
                 <input type="text" />
@@ -55,7 +54,6 @@
             </form>
             <% if (posts[i].comments.length) {%>
             <div class="comments">
-                <div class="comments-title">Comments</div>
                 <% for(let j = 0; j < posts[i].comments.length; j++) { %>
                 <div class="comment" id="<%= posts[i].comments[j]._id %>">
                     <div class="comment">
