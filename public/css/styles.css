@@ -5,6 +5,7 @@
    --black: #080708;
    --lightBlack: #5f5d5f;
    --white: #FDFFFC;
+   --jackson: #ADFFDD;
    --mainFont: 'Lato';
    --titleFont: 'Fascinate Inline';
    --otherFont: 'Anton';
@@ -147,15 +148,31 @@ footer * {
    padding-bottom: 0.2em;
 }
 
-.footer-names {
+.footer-names * {
    font-family: var(--titleFont);
    font-size: 1.4em;
    padding-bottom: 0.3em;
 }
 
+.footer-names .eduardo {
+   color:pink;
+}
+
+.footer-names .jackson {
+   color: var(--jackson);
+}
+
 .footer-emails {
    font-size: 1em;
    padding-top: 0.4em;
+}
+
+.footer-emails .eduardo {
+   color: pink;
+}
+
+.footer-emails .jackson {
+   color: var(--jackson);
 }
 
 .footer-date {
@@ -172,9 +189,20 @@ footer a{
   font-size: 2em;
 }
 
+
 footer .fab:hover{
-  color: var(--yellow);
+  color: var(--white);
 }
+
+
+.eduardo * {
+   color:pink;
+}
+
+.jackson * {
+   color: var(--jackson);
+}
+
 
 /* FORMS */
 form * {
@@ -264,17 +292,18 @@ button:hover{
    cursor: pointer;
 }
 
+
 .post button{
    margin: 20px;
-   border: 4px solid var(--blue);
-   background-color: var(--blue);
-   color: var(--white);
+   border: 4px solid var(--white);
+   background-color: var(--white);
+   color: var(--lightBlack);
 }
 
 .post button:hover{
    cursor: pointer;
    background-color: var(--white);
-   color: var(--blue);
+   color: var(--yellow);
 }
 
 .forms button {
