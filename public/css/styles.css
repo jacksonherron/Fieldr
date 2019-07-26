@@ -1,8 +1,9 @@
 :root{
    --red:#D00000;
-   --green: #008148;
-   --blue: #3F88C5;
+   --yellow: #FEBA33;
+   --blue: #00BDED;
    --black: #080708;
+   --lightBlack: #5f5d5f;
    --white: #FDFFFC;
    --mainFont: 'Lato';
    --titleFont: 'Fascinate Inline';
@@ -26,6 +27,7 @@ body {
    position: relative;
    overscroll-behavior: none;
    min-height: 100vh;
+   
 }
 
 main{
@@ -57,6 +59,7 @@ nav {
    align-items: flex-end;
    height: 4em;
    position: relative;
+   background: var(--black);
 
 }
 nav::before {
@@ -70,7 +73,7 @@ nav::before {
 }
 nav::after {
    content: '';
-   border: 5px solid var(--green);
+   border: 5px solid var(--red);
    border-radius: 10px;
    width: 95vw;
    bottom: -2em;
@@ -84,7 +87,7 @@ nav::after {
 
 .pseudo-nav::after {
    content: '';
-   border: 5px solid var(--red);
+   border: 5px solid var(--yellow);
    border-radius: 10px;
    bottom: -3em;
    width: 80vw;
@@ -96,7 +99,7 @@ nav .header * {
    font-size: 3em;
    font-family: var(--titleFont);
    margin-left: 1em;
-   color: var(--black);
+   color: var(--white);
 }
 .user-links{
    display: flex;
@@ -106,16 +109,16 @@ nav a {
    font-family: var(--titleFont);
    text-decoration: none;
    font-size: 2em;
-   color: black;
+   color: var(--white);
    margin-right: 1em;
 }
 
 nav a:hover{
-   color: var(--red);
+   color: var(--yellow);
 }
 
 nav .header a:hover{
-   color: var(--red);
+   color: var(--yellow);
 }
 
 
@@ -170,7 +173,7 @@ footer a{
 }
 
 footer .fab:hover{
-  color: var(--red);
+  color: var(--yellow);
 }
 
 /* FORMS */
@@ -210,8 +213,8 @@ input:focus {
 button {
    color: var(--white);
    background: none;
-   border: 4px solid var(--green);
-   background-color: var(--green);
+   border: 4px solid var(--yellow);
+   background-color: var(--yellow);
    font-weight: bold;
    border-radius: 50px;
    font-size: 1em;
@@ -221,19 +224,19 @@ button {
 
 button:hover{
    background-color: var(--white);
-   color: var(--green);
+   color: var(--yellow);
    cursor: pointer;
 }
 
 .home-button-container button{
    margin: 20px;
-   border: 4px solid var(--green);
-   background-color: var(--green);
+   border: 4px solid var(--yellow);
+   background-color: var(--yellow);
 }
 
 .home-button-container button:hover{
    background-color: var(--white);
-   color: var(--green);
+   color: var(--yellow);
    cursor: pointer;
 }
 
@@ -263,13 +266,15 @@ button:hover{
 
 .post button{
    margin: 20px;
-   border: 4px solid var(--white);
-   background-color: var(--white);
-   color: var(--green);
+   border: 4px solid var(--blue);
+   background-color: var(--blue);
+   color: var(--white);
 }
 
 .post button:hover{
    cursor: pointer;
+   background-color: var(--white);
+   color: var(--blue);
 }
 
 .forms button {
@@ -351,10 +356,10 @@ button:hover{
 .submit-btn{
    color: var(--white)!important;
    background: none;
-   border: 4px solid var(--green);
-   background: var(--green);
+   border: 4px solid var(--yellow);
+   background: var(--yellow);
    font-weight: bold;
-   color: var(--green);
+   color: var(--yellow);
    border-radius: 50px;
    font-size: 1em;
    color: black;
@@ -366,7 +371,7 @@ button:hover{
 
 .submit-btn:hover{
    background-color: var(--white);
-   color: var(--green)!important;
+   color: var(--yellow)!important;
    cursor: pointer;
 }
 
@@ -431,7 +436,7 @@ button:hover{
    font-size: 3em;
    font-family: var(--titleFont);
    margin-left: .5em;
-   color: var(--green);
+   color: var(--blue);
 }
 
 .profile-info{
@@ -449,15 +454,15 @@ button:hover{
    margin-left: 2em;
    margin-top: 1.5em;
    font-family: var(--titleFont);
-   color: var(--blue);
+   color: var(--red);
 }
 
 
 /* POSTS*/
 
 .post {
-   border: 5px solid var(--green);
-   background: var(--green);
+   border: 5px solid var(--lightBlack);
+   background: var(--lightBlack);
    border-radius: 40px;
    width: 18em;
    padding: 1em;
@@ -486,15 +491,18 @@ button:hover{
 
 .joins{
    font-family: var(--titleFont);
+   color: var(--yellow);
 }
 
 .descr {
    margin-top: 0.25em;
    margin-bottom: 1em;
+   color: var(--white);
 }
 
 .descr-title{
    font-weight: 800;
+   color: var(--white);
 }
 
 .delete-button {
@@ -540,6 +548,11 @@ button:hover{
 
 .comment-author {
    font-family: var(--titleFont);
+   color: var(--white);
+}
+
+.comment-content {
+   color: var(--white);
 }
 
 
