@@ -9,14 +9,16 @@ https://fieldr-app.herokuapp.com/
 ![Index Page](./images/index-page.jpg)
 
 <h2>What This Is</h2>
-This is a full-stack web app built over four days by Jackson Herron and Eduardo Franco at General Assembly's Software Engineering Immersive. This project is written in JavaScript, HTML, and CSS. The backend runs on Node.js with Express, Mongoose, and MongoDB. The front-end is built with EJS, Vanilla Javascript, and custom CSS - no front end frameworks are used.   
+This is a full-stack web app built over four days by Jackson Herron and Eduardo Franco at General Assembly's Software Engineering Immersive. This project is written in JavaScript, HTML, and CSS. The backend runs on Node.js with Express, Mongoose, and MongoDB. The front-end is built with EJS, Vanilla Javascript, and custom CSS - no front end frameworks are used.
 
-
+ <br />
+ 
 Every product is a solution to a problem. Jackson and Eduardo wondered to themselves, what problem does every person have that can be easily solved by a website? That's how Fieldr was born! 
 
 <h2>What This Does</h2>
 Fieldr is a web application that helps you find friends to play sports with! You can post about sports events you are hosting, or find posts of people in your area looking to get a game together. You can comment on people's posts to let them know you're going to be there. You can cement your commitment by clicking join. Of course we are all flakes so you can unjoin an outing as well.    
 
+ <br />
 
 We know what you're thinking "what if I don't want to go on another dog search souling microbrew hike" well you can make your own posts and also delete them! Also breathe easy, because your account is secured using bcrypt password hashing, so you know your privacy is safe with Fieldr - that is until quantum computing takes over.
 
