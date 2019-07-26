@@ -35,7 +35,7 @@ And that's Fieldr. A web app designed to find friends to be physical with. And i
 
 ![Home Page](./images/home-page.png)
 
-##Profile Page
+## Profile Page
 
 ![Profile Page](./images/profile-page.png)
 
