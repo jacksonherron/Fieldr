@@ -39,3 +39,10 @@ https://fieldr-app.herokuapp.com/
 
 ![Profile Page](./images/profile-page.png)
 
+--- 
+
+### Team
+
+- Jackson Herron
+- Eduardo Franco
+
