@@ -1,10 +1,9 @@
 # Fieldr
+Fieldr is a web application that helps you find friends to play sports with! You can post about events you are hosting, or find people in your area looking to get a game together. You can comment and join posts to let them know you're going to be there.
 
 ## Heroku Deployment
 
 https://fieldr-app.herokuapp.com/
-
-![Index Page](./images/index-page.jpg)
 
 ### Technologies Used:
 
@@ -18,8 +17,6 @@ https://fieldr-app.herokuapp.com/
 - HTML
 - CSS
 
-### What This Does
-Fieldr is a web application that helps you find friends to play sports with! You can post about events you are hosting, or find people in your area looking to get a game together. You can comment and join posts to let them know you're going to be there.
 
 --- 
 
@@ -31,13 +28,11 @@ Fieldr is a web application that helps you find friends to play sports with! You
 4. Post about your own outings as well
 5. View all posts you are connected to from your profile pag
 
-### Wireframes
+### Screenshots
 
-###### Home Page
+![Index Page](./images/index-page.jpg)
 
 ![Home Page](./images/home-page.png)
-
-###### Profile Page
 
 ![Profile Page](./images/profile-page.png)
 
