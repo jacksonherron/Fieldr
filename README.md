@@ -5,6 +5,8 @@ Fieldr is a web application that helps you find friends to play sports with! You
 
 https://fieldr-app.herokuapp.com/
 
+--- 
+
 ### Technologies Used:
 
 - Javascript
@@ -17,7 +19,6 @@ https://fieldr-app.herokuapp.com/
 - HTML
 - CSS
 
-
 --- 
 
 ### User Story
@@ -27,6 +28,8 @@ https://fieldr-app.herokuapp.com/
 3. From the home page, view posts happening in your area
 4. Post about your own outings as well
 5. View all posts you are connected to from your profile pag
+
+--- 
 
 ### Screenshots
 
